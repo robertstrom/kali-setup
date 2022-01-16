@@ -12,6 +12,7 @@ cd  /
 
 ## Install exa
 sudo apt install exa
+## Add exa aliases to ls to the zsh profile
 
 ## Create directory for storing downloaded exploits, etc.
 
@@ -19,3 +20,26 @@ cd ~
 mkdir exploits
 ## Clone Dewalt's pimpmy-phprevshell
 git clone https://github.com/Dewalt-arch/pimpmy-phprevshell.git
+
+## Install ShellCheck - A shell script static analysis tool
+## https://github.com/koalaman/shellcheck#user-content-in-your-editor
+sudo apt install shellcheck
+
+## Install progress viewer
+sudo apt install pv
+
+# Install Geany IDE / Editor
+sudo apt install geany
+
+## Install Copyq
+https://github.com/hluk/CopyQ
+https://github.com/hluk/CopyQ/releases/latest
+
+## Install xclip
+sudo apt install xclip
+## Add xclip aliases to the .zshrc profile
+
+## Install Dolphin
+sudo apt install dolphin
+
+
