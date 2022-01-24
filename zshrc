@@ -252,6 +252,11 @@ alias la='exa -lbhHigUmuSa --time-style=long-iso --color-scale'             # al
 alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale'            # all + extended list
 alias lS='exa -1'			                                    # one column, just names
 alias lt='exa --tree --level=2'                                             # tree
+alias history='history -i 1'
+# requires that xclip be installed
+alias xclip='xclip -selection clipboard'
+alias clip='xclip -selection clipboard'
+
 
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
