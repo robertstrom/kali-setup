@@ -52,3 +52,6 @@ sudo dpkg -i rustscan_2.0.1_amd64.deb
 # Install nmapAutomater
 git clone https://github.com/21y4d/nmapAutomator.git
 sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
+
+# Install Windows Exploit Suggester - Next Generation (WES-NG)
+pip3 install wesng
