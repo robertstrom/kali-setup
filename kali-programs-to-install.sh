@@ -55,3 +55,6 @@ sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
+
+# Install PowerShell Empire
+sudo apt install powershell-empire
