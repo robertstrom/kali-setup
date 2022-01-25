@@ -49,4 +49,6 @@ sudo apt install dolphin
 wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -o rustscan_2.0.1_amd64.deb
 sudo dpkg -i rustscan_2.0.1_amd64.deb
 
-
+# Install nmapAutomater
+git clone https://github.com/21y4d/nmapAutomator.git
+sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
