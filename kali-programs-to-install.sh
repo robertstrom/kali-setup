@@ -42,4 +42,11 @@ sudo apt install xclip
 ## Install Dolphin
 sudo apt install dolphin
 
+# Install rustscan
+# https://overide.medium.com/rustscan-fcbdb93e17c9
+# https://github.com/RustScan/RustScan/wiki/Installation-Guide
+# https://github.com/RustScan/RustScan/releases/
+wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -o rustscan_2.0.1_amd64.deb
+sudo dpkg -i rustscan_2.0.1_amd64.deb
+
 
