@@ -4,7 +4,7 @@
 ## so that it is fully functional with all expected software installed.
 
 ## pimpmykali - https://github.com/Dewalt-arch/pimpmykali
-git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
+sudo git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
 rm -rf /opt/pimpmykali/
 cd /opt/pimpmykali
 sudo ./pimpmykali.sh
