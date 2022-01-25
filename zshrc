@@ -53,8 +53,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
+HISTSIZE=100000
+SAVEHIST=200000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -63,6 +63,7 @@ setopt hist_verify            # show command with history expansion to user befo
 
 # force zsh to show the complete history
 ## alias history="history 0"
+alias history='history -i 1'
 
 # configure `time` format
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
@@ -254,17 +255,15 @@ alias lS='exa -1'			                                    # one column, just names
 alias lt='exa --tree --level=2'                                             # tree
 alias history='history -i 1'
 # requires that xclip be installed
+# Alias to send text from terminal to clipboard
+# This is usually via using cat to output the file and then pipe it to xclip
+alias clip="xclip -selection clipboard"
 alias xclip='xclip -selection clipboard'
-alias clip='xclip -selection clipboard'
-
+alias paste="xclip -selection clipboard -o"
 
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
 
-# Alias to send text from terminal to clipboard
-# This is usually via using cat to output the file and then pipe it to xclip
-alias clip="xclip -selection clipboard"
-alias paste="xclip -selection clipboard -o"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
