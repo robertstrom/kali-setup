@@ -58,3 +58,9 @@ pip3 install wesng
 
 # Install PowerShell Empire
 sudo apt install powershell-empire
+
+## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
+sudo apt-get install software-properties-common
+
+## Add Ksnip screenshot utility
+sudo apt install ksnip
