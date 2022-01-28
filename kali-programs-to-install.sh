@@ -62,5 +62,8 @@ sudo apt install powershell-empire
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
 sudo apt-get install software-properties-common
 
+## Install Spectacle screenshot utility
+sudo apt install kde-spectacle
+
 ## Add Ksnip screenshot utility
 sudo apt install ksnip
