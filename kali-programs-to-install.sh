@@ -67,7 +67,10 @@ sudo apt install kde-spectacle
 
 ## Add Ksnip screenshot utility
 ## Ksnip looks good but seems to behave strangely in a VM
-sudo apt install ksnip
+## sudo apt install ksnip
+## The Ksnip AppImage is working correctly
+## https://github.com/ksnip/ksnip/releases/tag/v1.9.2
+wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage 
 
 ## Install Web Recon programs
 ## httprobe
