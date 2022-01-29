@@ -66,4 +66,20 @@ sudo apt-get install software-properties-common
 sudo apt install kde-spectacle
 
 ## Add Ksnip screenshot utility
+## Ksnip looks good but seems to behave strangely in a VM
 sudo apt install ksnip
+
+## Install Web Recon programs
+## httprobe
+## https://github.com/tomnomnom/httprobe
+go get -u github.com/tomnomnom/httprobe
+## Amass
+## https://github.com/OWASP/Amass
+go install -v github.com/OWASP/Amass/v3/...@master
+## assetfinder
+## https://github.com/tomnomnom/assetfinder
+go get -u github.com/tomnomnom/assetfinder  
+
+## Autoenum
+wget https://github.com/Gr1mmie/autoenum/releases/tag/v3
+
