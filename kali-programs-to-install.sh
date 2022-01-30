@@ -84,5 +84,4 @@ go install -v github.com/OWASP/Amass/v3/...@master
 go get -u github.com/tomnomnom/assetfinder  
 
 ## Autoenum
-wget https://github.com/Gr1mmie/autoenum/releases/tag/v3
-
+https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
