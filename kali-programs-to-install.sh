@@ -81,7 +81,13 @@ go get -u github.com/tomnomnom/httprobe
 go install -v github.com/OWASP/Amass/v3/...@master
 ## assetfinder
 ## https://github.com/tomnomnom/assetfinder
-go get -u github.com/tomnomnom/assetfinder  
+go get -u github.com/tomnomnom/assetfinder
+## subjack
+## https://github.com/haccer/subjack
+go get github.com/haccer/subjack
+## waybackurls
+## https://github.com/tomnomnom/waybackurls
+go get github.com/tomnomnom/waybackurls
 
 ## Autoenum
 wget https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
