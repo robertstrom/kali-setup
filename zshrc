@@ -253,7 +253,6 @@ alias la='exa -lbhHigUmuSa --time-style=long-iso --color-scale'             # al
 alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale'            # all + extended list
 alias lS='exa -1'			                                    # one column, just names
 alias lt='exa --tree --level=2'                                             # tree
-alias history='history -i 1'
 # requires that xclip be installed
 # Alias to send text from terminal to clipboard
 # This is usually via using cat to output the file and then pipe it to xclip
