@@ -96,4 +96,6 @@ unzip v3.zip
 ## Updog web server
 https://github.com/sc0tfree/updog
 
+## html2text
+sudo apt install html2text -y
 
