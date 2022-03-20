@@ -99,3 +99,6 @@ https://github.com/sc0tfree/updog
 ## html2text
 sudo apt install html2text -y
 
+## The mkpsrevshell.py script from - https://gist.github.com/tothi/ab288fb523a4b32b51a53e542d40fe58
+## This script creates an encoded PowerShell reverse shell
+## I have created a copy of this script renaming it to make-powershell-base64-reverse-shell.py
