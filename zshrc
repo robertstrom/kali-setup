@@ -313,3 +313,27 @@ start-python-ftp-server() {
 python3 -m pyftpdlib -p 21 --write
 }
 
+set_rdp_connection_info() {
+    echo "Please enter the username"
+    read rdp_user_name
+    echo "Please enter the password"
+    read rdp_password
+    echo "Please enter the IP Address"
+    read rdp_ip_address
+}
+
+unset_rdp_connection_info() {
+    unset read rdp_user_name
+    unset rdp_password
+    unset rdp_ip_address
+}
+
+start-rdp-connection() {
+    # echo "Please enter the username"
+    # read rdp_user_name
+    # echo "Please enter the password"
+    # read rdp_password
+    # echo "Please enter the IP Address"
+    # read rdp_ip_address
+    rdesktop -z -P -x m -u $rdp_user_name -p $rdp_password $rdp_ip_address
+}
