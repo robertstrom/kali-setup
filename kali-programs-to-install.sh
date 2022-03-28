@@ -106,3 +106,5 @@ sudo apt install html2text -y
 ## The ps_encoder.py script
 ## https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
 
+## Install csvkit
+sudo apt install csvkit
