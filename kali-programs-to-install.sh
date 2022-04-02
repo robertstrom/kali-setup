@@ -94,7 +94,8 @@ wget https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
 unzip v3.zip
 
 ## Updog web server
-https://github.com/sc0tfree/updog
+## https://github.com/sc0tfree/updog
+pip3 install updog
 
 ## html2text
 sudo apt install html2text -y
