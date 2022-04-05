@@ -109,3 +109,20 @@ sudo apt install html2text -y
 
 ## Install csvkit
 sudo apt install csvkit
+
+## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
+mkdir ~/transfers
+mkdir ~/transfers/Sysinternals
+
+# Copy all current mkdir Sysinternals tools to the mkdir ~/transfers/Sysinternals directory
+# Copy mimikatz.exe to the ~/transfers directory
+# Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
+# Copy sbd.exe  to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/plink.exe to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/wget.exe to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/nbtenum to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/mbenum to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/enumplus to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/fgdump to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
