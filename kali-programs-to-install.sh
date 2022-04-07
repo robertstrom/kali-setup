@@ -126,3 +126,6 @@ mkdir ~/transfers/Sysinternals
 # Copy cp -R /usr/share/windows-resources/binaries/enumplus to the ~/transfers directory
 # Copy cp -R /usr/share/windows-resources/binaries/fgdump to the ~/transfers directory
 # Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
+
+# evil-winrm
+sudo apt install evil-winrm
