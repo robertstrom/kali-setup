@@ -113,6 +113,9 @@ sudo apt install csvkit
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
 mkdir ~/transfers
 mkdir ~/transfers/Sysinternals
+# PSTools
+# Additional Sysinternals tools needed
+# procdump
 
 # Copy all current mkdir Sysinternals tools to the mkdir ~/transfers/Sysinternals directory
 # Copy mimikatz.exe to the ~/transfers directory
