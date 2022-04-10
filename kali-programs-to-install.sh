@@ -135,3 +135,6 @@ mkdir ~/transfers/Sysinternals
 
 # evil-winrm
 sudo apt install evil-winrm
+
+# Install Remmina
+sudo apt install remmina
