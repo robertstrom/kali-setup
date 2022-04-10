@@ -6,7 +6,7 @@
 #
 
 setopt autocd              	# change directory just by typing its name
-#setopt correct            	# auto correct mistakes
+setopt correct            	# auto correct mistakes
 setopt interactivecomments 	# allow comments in interactive mode
 setopt magicequalsubst     	# enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           	# hide error message if there is no match for the pattern
@@ -279,12 +279,17 @@ fi
 # Created by `pipx` on 2021-12-13 05:44:31
 export PATH="$PATH:/home/rstrom/.local/bin"
 
+OffSec-openvpn-connection() {
+sudo openvpn ~/Documents/OpenVPN/offsec_pwk_2022-03-05_3.ovpn
+}
+
+
 HTB-UDP-openvpn-connection() {
-sudo openvpn ~/Documents/HTB/lab_HuntingWabbits_UDP.ovpn
+sudo openvpn ~/Documents/OpenVPN/lab_HuntingWabbits_UDP.ovpn
 }
 
 HTB-443-openvpn-connection() {
-sudo openvpn ~/Documents/HTB/lab_HuntingWabbits_443.ovpn
+sudo openvpn ~/Documents/OpenVPN/lab_HuntingWabbits_443.ovpn
 }
 
 zsh-prompt-tun0() {
@@ -298,7 +303,7 @@ PS1="%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_
 }
 
 TryHackMe-openvpn-connection() {
-sudo openvpn ~/Documents/TryHackMe/AnalogKid.ovpn
+sudo openvpn ~/Documents/OpenVPN/AnalogKid.ovpn
 }
 
 Shrink-Disk() {
@@ -347,3 +352,16 @@ start-rdp-connection-disk-redirection() {
     # read rdp_ip_address
     rdesktop -z -P -x m -u $rdp_user_name -p $rdp_password -r disk:local="/home/rstrom/" $rdp_ip_address
 }
+
+start-xfreerdp-connection() {
+    # echo "Please enter the username"
+    # read rdp_user_name
+    # echo "Please enter the password"
+    # read rdp_password
+    # echo "Please enter the IP Address"
+    # read rdp_ip_address
+    xfreerdp /cert-ignore /compression /u:$rdp_user_name /p:$rdp_password /w:1366 /h:768 /v:$rdp_ip_address /smart-sizing +auto-reconnect +clipboard 
+}
+
+### Path to the Kerberos ccache files need to be the full path, not the relative path
+### KRB5CCNAME=~/SamiraA.ccache
