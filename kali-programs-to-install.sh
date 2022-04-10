@@ -31,6 +31,9 @@ sudo apt install pv
 # Install Geany IDE / Editor
 sudo apt install geany
 
+# Install Terminator
+sudo apt install terminator
+
 ## Install Copyq
 https://github.com/hluk/CopyQ
 https://github.com/hluk/CopyQ/releases/latest
@@ -113,8 +116,6 @@ sudo apt install html2text -y
 ## Install csvkit
 sudo apt install csvkit
 
-## Create an exploits directory
-mkdir ~/exploits
 
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
 mkdir ~/transfers
@@ -145,5 +146,6 @@ sudo apt install remmina
 # Install kerbrute
 pip3 install kerbrute
 
-
+# Install wine
+dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
