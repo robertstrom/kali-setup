@@ -110,6 +110,9 @@ sudo apt install html2text -y
 ## Install csvkit
 sudo apt install csvkit
 
+## Create an exploits directory
+mkdir ~/exploits
+
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
 mkdir ~/transfers
 mkdir ~/transfers/Sysinternals
