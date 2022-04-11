@@ -279,6 +279,37 @@ fi
 # Created by `pipx` on 2021-12-13 05:44:31
 export PATH="$PATH:/home/rstrom/.local/bin"
 
+
+# Functions added - 4/10/2022 RStrom
+function grepEmailAddresses() {
+	grep -E -o "\b[a-zA-Z0-9.-]+@[a-zA-Z0-9.-](+.|&#46;)[a-zA-Z0-9.-]+\b" $1
+}
+
+function grepURLs() {
+	grep -oE '\b(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]' $1
+}
+
+function convertFromHexGetURLs() {
+	## Original regex
+	## sed "s/<script language.*('//g" $1 | sed "s/').*$//g" | xxd -r -p | grep -oE '\b(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]'
+	sed "s/<script.*('//g" $1 |  sed "s/').*$//g" | sed "/<script/,/<\/script>/d" | sed "/<html/,/<\/html>/d"  | xxd -r -p | grep -oE '\b(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]'
+}
+
+function convertFromHexGetEmail() {
+	sed "s/<script language.*('//g" $1 | sed "s/').*$//g" | xxd -r -p | sed "s/&#46;/./g" | grep -E -o "\b[a-zA-Z0-9.-]+@[a-zA-Z0-9.-](+.|&#46;)[a-zA-Z0-9.-]+\b"
+}
+
+get-geoiplookup-io() {
+	#do things with parameters like $1 such as
+	curl --insecure https://json.geoiplookup.io/geo/"$1"
+}
+
+get-geoipinfo-io() {
+	#do things with parameters like $1 such as
+	curl --insecure https://ipinfo.io/"$1"
+}
+
+
 OffSec-openvpn-connection() {
 sudo openvpn ~/Documents/OpenVPN/offsec_pwk_2022-03-05_3.ovpn
 }
@@ -365,3 +396,5 @@ start-xfreerdp-connection() {
 
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### KRB5CCNAME=~/SamiraA.ccache
+
+
