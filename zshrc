@@ -349,6 +349,15 @@ start-python-ftp-server() {
 python3 -m pyftpdlib -p 21 --write
 }
 
+start-apache-web-server() {
+	echo "The Apache web servers directory is /var/www/html/"
+	sudo systemctl start apache2
+}
+
+stop-apache-web-server() {
+	sudo systemctl stop apache2
+}
+
 set-rdp-connection-info() {
     echo "Please enter the username"
     read rdp_user_name
