@@ -263,7 +263,6 @@ alias paste="xclip -selection clipboard -o"
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
 
-
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -365,6 +364,12 @@ set-rdp-connection-info() {
     read rdp_password
     echo "Please enter the IP Address"
     read rdp_ip_address
+}
+
+get-rdp-connection-info() {
+    echo "The RDP username is: $rdp_user_name"
+    echo "The RDP password is: $rdp_password"
+    echo "The RDP IP Address is: $rdp_ip_address"
 }
 
 unset-rdp-connection-info() {
