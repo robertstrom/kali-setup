@@ -408,6 +408,13 @@ start-xfreerdp-connection() {
     xfreerdp /cert-ignore /compression /u:$rdp_user_name /p:$rdp_password /w:1366 /h:768 /v:$rdp_ip_address /smart-sizing +auto-reconnect +clipboard 
 }
 
+connect-QNAP-sshfs() {
+
+sshfs rstrom@qnap: ~/QNAPMyDocs
+
+}
+
+
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### KRB5CCNAME=~/SamiraA.ccache
 
