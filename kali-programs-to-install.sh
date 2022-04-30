@@ -149,3 +149,7 @@ pip3 install kerbrute
 # Install wine
 dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
+# Setup fuse group and add user to fuse group for sshfs use
+sudo groupadd fuse
+sudo usermod -a -G fuse rstrom
+
