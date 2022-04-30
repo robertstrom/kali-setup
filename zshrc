@@ -414,6 +414,12 @@ sshfs rstrom@qnap: ~/QNAPMyDocs
 
 }
 
+connect-rstrom-XPS-15-9550-sshfs() {
+
+sshfs rstrom@rstrom-XPS-15-9550: ~/RStromXPS15
+
+}
+
 
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### KRB5CCNAME=~/SamiraA.ccache
