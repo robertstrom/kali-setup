@@ -153,3 +153,5 @@ dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
 
+# Create a directory for mounting remote SMB shares
+mkdir ~/SMBmount
