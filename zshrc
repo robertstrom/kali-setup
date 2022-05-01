@@ -409,17 +409,28 @@ start-xfreerdp-connection() {
 }
 
 connect-QNAP-sshfs() {
-
 sshfs rstrom@qnap: ~/QNAPMyDocs
-
 }
 
 connect-rstrom-XPS-15-9550-sshfs() {
-
 sshfs rstrom@rstrom-XPS-15-9550: ~/RStromXPS15
-
 }
 
+connect-remote-SMB-share() {
+    echo "Please enter the SMB username"
+    read smb_user_name
+    echo "Please enter the SMB password"
+    read smb_user_password
+    echo "Please enter the IP Address of the SMB server to connect to"
+    read smb_ip_address
+    echo "Please enter the name of the SMB share to connect to"
+    read smb_share
+    sudo mount -t cifs -o gid=1000,uid=1000,vers=2.0,username=$smb_user_name,password=$smb_user_password //$smb_ip_address/$smb_share /home/rstrom/SMBMount
+}
+
+disconnect-remote-SMB-share() {
+sudo umount /home/rstrom/SMBMount
+}
 
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### KRB5CCNAME=~/SamiraA.ccache
