@@ -432,7 +432,11 @@ disconnect-remote-SMB-share() {
 sudo umount /home/rstrom/SMBMount
 }
 
+### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
+### NOT This:
 ### KRB5CCNAME=~/SamiraA.ccache
+### This:
+### KRB5CCNAME=/home/rstrom/SamiraA.ccache
 
 
