@@ -155,3 +155,18 @@ sudo usermod -a -G fuse rstrom
 
 # Create a directory for mounting remote SMB shares
 mkdir ~/SMBmount
+
+# Install vsftpd
+# How To Set Up vsftpd for a User's Directory on Ubuntu 20.04
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-20-04
+# How to Setup FTP Server with VSFTPD
+# https://adamtheautomator.com/vsftpd/
+sudo apt install vsftpd
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+sudo adduser ftp
+sudo mkdir /home/ftp/ftp
+sudo chown nobody:nogroup /home/ftp/ftp
+sudo chmod a-w /home/home/ftp
+sudo mkdir /home/ftp/ftp/files
+sudo chown sammy:sammy /home/ftp/ftp/files
+
