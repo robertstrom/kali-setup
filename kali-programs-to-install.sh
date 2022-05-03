@@ -166,7 +166,7 @@ sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo adduser ftp
 sudo mkdir /home/ftp/ftp
 sudo chown nobody:nogroup /home/ftp/ftp
-sudo chmod a-w /home/home/ftp
+sudo chmod a-w /home/ftp/ftp
 sudo mkdir /home/ftp/ftp/files
 sudo chown sammy:sammy /home/ftp/ftp/files
 
