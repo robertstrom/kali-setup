@@ -168,5 +168,5 @@ sudo mkdir -p /home/ftp/ftp
 sudo chown nobody:nogroup /home/ftp/ftp
 sudo chmod a-w /home/ftp/ftp
 sudo mkdir -p /home/ftp/ftp/files
-sudo chown sammy:sammy /home/ftp/ftp/files
+sudo chown ftp:ftp /home/ftp/ftp/files
 
