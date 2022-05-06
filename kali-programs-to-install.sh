@@ -7,7 +7,7 @@
 # See these articles
 # https://kb.vmware.com/s/article/60262
 # https://docs.vmware.com/en/VMware-Tools/11.2/rn/VMware-Tools-1125-Release-Notes.html#vmware-tools-issues-in-vmware-workstation-or-fusion-known
-# Configure shared folder in VMware to point to the folder on the VMware host and leave shared fodlers enable
+# Configure shared folder in VMware to point to the folder on the VMware host and leave shared folders enable
 # Add this line to the /etc/fstab file
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
 
