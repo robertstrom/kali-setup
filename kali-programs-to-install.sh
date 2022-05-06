@@ -20,39 +20,38 @@ sudo ./pimpmykali.sh
 cd  /
 
 ## Install exa
-sudo apt install exa
+sudo apt install exa -y
 ## Add exa aliases to ls to the zsh profile
 
 ## Create directory for storing downloaded exploits, etc.
 
 cd ~
 mkdir exploits
-## Clone Dewalt's pimpmy-phprevshell
-git clone https://github.com/Dewalt-arch/pimpmy-phprevshell.git
 
 ## Install ShellCheck - A shell script static analysis tool
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
 sudo apt install shellcheck
 
 ## Install progress viewer
-sudo apt install pv
+sudo apt install pv -y
 
 # Install Geany IDE / Editor
-sudo apt install geany
+sudo apt install geany -y
 
 # Install Terminator
-sudo apt install terminator
+sudo apt install terminator -y
 
 ## Install Copyq
-https://github.com/hluk/CopyQ
-https://github.com/hluk/CopyQ/releases/latest
+# https://github.com/hluk/CopyQ
+# https://github.com/hluk/CopyQ/releases/latest
+sudo apt install copyq -y
 
 ## Install xclip
-sudo apt install xclip
+sudo apt install xclip -y
 ## Add xclip aliases to the .zshrc profile
 
 ## Install Dolphin
-sudo apt install dolphin
+sudo apt install dolphin -y
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
@@ -69,13 +68,13 @@ sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
 pip3 install wesng
 
 # Install PowerShell Empire
-sudo apt install powershell-empire
+sudo apt install powershell-empire -y
 
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
-sudo apt-get install software-properties-common
+sudo apt-get install software-properties-common -y
 
 ## Install Spectacle screenshot utility
-sudo apt install kde-spectacle
+sudo apt install kde-spectacle -y
 
 ## Add Ksnip screenshot utility
 ## Ksnip looks good but seems to behave strangely in a VM
@@ -85,7 +84,7 @@ sudo apt install kde-spectacle
 wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage
 
 ## Install Falmeshot
-sudo apt install flameshot
+sudo apt install flameshot -y
 
 ## Install Web Recon programs
 ## httprobe
@@ -123,7 +122,7 @@ sudo apt install html2text -y
 ## https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
 
 ## Install csvkit
-sudo apt install csvkit
+sudo apt install csvkit -y
 
 
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
@@ -147,10 +146,10 @@ mkdir ~/transfers/Sysinternals
 # Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
 
 # evil-winrm
-sudo apt install evil-winrm
+sudo apt install evil-winrm -y
 
 # Install Remmina
-sudo apt install remmina
+sudo apt install remmina -y
 
 # Install kerbrute
 pip3 install kerbrute
@@ -170,7 +169,7 @@ mkdir ~/SMBmount
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-20-04
 # How to Setup FTP Server with VSFTPD
 # https://adamtheautomator.com/vsftpd/
-sudo apt install vsftpd
+sudo apt install vsftpd -y
 sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo adduser ftp
 sudo mkdir -p /home/ftp/ftp
