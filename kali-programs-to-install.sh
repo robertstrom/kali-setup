@@ -3,6 +3,15 @@
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
 ## so that it is fully functional with all expected software installed.
 
+# Setup shared folder
+# See these articles
+# https://kb.vmware.com/s/article/60262
+# https://docs.vmware.com/en/VMware-Tools/11.2/rn/VMware-Tools-1125-Release-Notes.html#vmware-tools-issues-in-vmware-workstation-or-fusion-known
+# Configure shared folder in VMware to point to the folder on the VMware host and leave shared fodlers enable
+# Add this line to the /etc/fstab file
+# .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
+
+
 ## pimpmykali - https://github.com/Dewalt-arch/pimpmykali
 sudo git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
 rm -rf /opt/pimpmykali/
