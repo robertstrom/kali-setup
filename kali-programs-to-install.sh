@@ -178,3 +178,22 @@ sudo chmod a-w /home/ftp/ftp
 sudo mkdir -p /home/ftp/ftp/files
 sudo chown ftp:ftp /home/ftp/ftp/files
 
+# Install Pure-FTPd
+sudo apt update && sudo apt install pure-ftpd
+# Create users and configuration
+# Run this as root, not sudo, or the two commands to create the link to the PureDB will not work
+#!/bin/bash
+
+sudo groupadd ftpgroup
+sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+sudo pure-pw useradd offsec -u ftpuser -d /ftphome
+sudo pure-pw mkdb
+# The cd command below does not work if you are not not running as root
+sudo cd /etc/pure-ftpd/auth/
+# If you do not get cd'd into the directory above the command to create a link below will not work and then the user logons will not work
+sudo ln -s ../conf/PureDB 60pdb
+sudo mkdir -p /ftphome
+sudo chown -R ftpuser:ftpgroup /ftphome/
+sudo systemctl restart pure-ftpd
+
+
