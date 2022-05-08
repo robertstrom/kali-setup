@@ -202,3 +202,6 @@ pip install uploadserver
 ## Usage = python3 -m uploadserver
 ## python3 -m uploadserver 80
 
+# Install atftp TFTP server
+sudo apt install atftp -y
+
