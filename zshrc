@@ -349,7 +349,7 @@ python3 -m http.server 80
 }
 
 start-python3-HTTPUploadServer() {
-python3 -m uploadserver
+python3 -m uploadserver 80
 }
 
 start-python-ftp-server() {
