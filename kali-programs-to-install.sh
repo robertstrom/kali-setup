@@ -196,4 +196,9 @@ sudo mkdir -p /ftphome
 sudo chown -R ftpuser:ftpgroup /ftphome/
 sudo systemctl restart pure-ftpd
 
+# Install Python HTTP Upload server
+# https://pypi.org/project/uploadserver/
+pip install uploadserver
+## Usage = python3 -m uploadserver
+## python3 -m uploadserver 80
 
