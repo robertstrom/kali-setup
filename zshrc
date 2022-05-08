@@ -345,7 +345,7 @@ python -m SimpleHTTPServer 80
 }
 
 start-python3-httpserver-80() {
-python3 http.server 80
+python3 -m http.server 80
 }
 
 start-python3-HTTPUploadServer() {
