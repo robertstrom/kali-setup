@@ -263,6 +263,10 @@ alias paste="xclip -selection clipboard -o"
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
 
+# alias to VMware Shared folder /mnt/hgfs/host
+alias SharedHostFolder="cd /mnt/hgfs/host"
+
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
