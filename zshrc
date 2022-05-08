@@ -344,6 +344,14 @@ start-python-httpserver-80() {
 python -m SimpleHTTPServer 80
 }
 
+start-python3-httpserver-80() {
+python3 http.server 80
+}
+
+start-python3-HTTPUploadServer() {
+python3 -m uploadserver
+}
+
 start-python-ftp-server() {
 python3 -m pyftpdlib -p 21 --write
 }
@@ -438,5 +446,4 @@ sudo umount /home/rstrom/SMBMount
 ### KRB5CCNAME=~/SamiraA.ccache
 ### This:
 ### KRB5CCNAME=/home/rstrom/SamiraA.ccache
-
 
