@@ -204,4 +204,9 @@ pip install uploadserver
 
 # Install atftp TFTP server
 sudo apt install atftp -y
-
+# Configure the home directory for the TFTP server files
+sudo mkdir /tftp
+# Configure the permissions for the TFTP server files
+sudo chown nobody: /tftp
+# Start the TFTP server
+sudo atftpd --daemon --port 69 /tftp
