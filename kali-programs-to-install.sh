@@ -210,3 +210,6 @@ sudo mkdir /tftp
 sudo chown nobody: /tftp
 # Start the TFTP server
 sudo atftpd --daemon --port 69 /tftp
+
+# Install urlencode
+sudo apt install gridsite-clients
