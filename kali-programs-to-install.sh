@@ -226,6 +226,7 @@ sudo apt install shellter
 # Install the Veil framework
 # https://github.com/Veil-Framework/Veil
 # Kali quick install
+# Veil was found to already be installed - 5/14/2022
 sudo apt install veil -y
 /usr/share/veil/config/setup.sh --force --silent
 
