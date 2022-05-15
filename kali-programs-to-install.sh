@@ -222,3 +222,7 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 # Install shelter (may already be installed)
 # Dynamic shellcode injection tool and dynamic PE infector
 sudo apt install shellter
+
+# Install the Veil framework
+# https://github.com/Veil-Framework/Veil
+
