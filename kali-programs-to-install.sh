@@ -213,3 +213,8 @@ sudo atftpd --daemon --port 69 /tftp
 
 # Install urlencode
 sudo apt install gridsite-clients
+
+# Save the ps_encoder.py script to the ~/Documents/scripts/python directory
+# https://github.com/darkoperator/powershell_scripts/blob/master/ps_encoder.py
+wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py -o ~/Documents/scripts/python/ps_encoder.py
+chmod +x ~/Documents/scripts/python/ps_encoder.py
