@@ -218,3 +218,7 @@ sudo apt install gridsite-clients
 # https://github.com/darkoperator/powershell_scripts/blob/master/ps_encoder.py
 wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py -O ~/Documents/scripts/python/ps_encoder.py
 chmod +x ~/Documents/scripts/python/ps_encoder.py
+
+# Install shelter (may already be installed)
+# Dynamic shellcode injection tool and dynamic PE infector
+sudo apt install shellter
