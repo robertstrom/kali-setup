@@ -114,7 +114,7 @@ sudo apt install terminator -y
 ## Install Copyq
 # https://github.com/hluk/CopyQ
 # https://github.com/hluk/CopyQ/releases/latest
-# sudo apt install copyq -y
+sudo apt install copyq -y
 
 ## Install xclip
 sudo apt install xclip -y
