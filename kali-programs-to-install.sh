@@ -4,6 +4,9 @@ scriptstarttime=$(date)
 
 # Kali Setup programs to be installed and configuration changes needed
 
+# Command to run on the new Kali system to download and execute this script
+# wget -O - https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh | bash
+
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
 ## so that it is fully functional with all expected software installed.
 
