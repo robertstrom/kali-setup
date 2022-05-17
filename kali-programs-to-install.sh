@@ -58,11 +58,11 @@ sudo apt install sshfs -y
 
 sshfs rstrom@$qnap: ~/QNAPMyDocs
 
-cd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
+pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
 
 cp * ~/transfers/Sysinternals/
 
-cd ~
+popd
 
 # PSTools
 # Additional Sysinternals tools needed
