@@ -230,4 +230,8 @@ sudo apt install shellter
 sudo apt install veil -y
 /usr/share/veil/config/setup.sh --force --silent
 
-
+# Install the Hollywood Activate / Kali Screensaver (April Fools)
+sudo apt -y install kali-screensaver
+sudo apt -y install hollywood-activate
+# Start the screensaver with the command below
+hollywood-activate
