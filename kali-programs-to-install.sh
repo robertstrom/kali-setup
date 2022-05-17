@@ -239,3 +239,4 @@ hollywood-activate
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
+source ~/.zshrc
