@@ -59,7 +59,7 @@ sudo usermod -a -G fuse rstrom
 # Install sshfs
 sudo apt install sshfs -y
 
-## export qnap='192.168.0.99'
+export qnap='192.168.0.99'
 
 sshfs rstrom@$qnap: ~/QNAPMyDocs
 
