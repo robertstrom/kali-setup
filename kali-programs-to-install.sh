@@ -45,6 +45,23 @@ mkdir ~/SMBmount
 mkdir ~/transfers
 mkdir -p  ~/transfers/Sysinternals
 
+# Setup fuse group and add user to fuse group for sshfs use
+sudo groupadd fuse
+sudo usermod -a -G fuse rstrom
+
+# Install sshfs
+sudo apt install sshfs -y
+
+export qnap='192.168.0.99'
+
+sshfs rstrom@$qnap: ~/QNAPMyDocs
+
+cd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
+
+cp * ~/transfers/Sysinternals/
+
+cd ~
+
 # PSTools
 # Additional Sysinternals tools needed
 # procdump
@@ -54,13 +71,21 @@ mkdir -p  ~/transfers/Sysinternals
 # Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
 # Copy sbd.exe  to the ~/transfers directory
 # Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
+cp /usr/share/windows-resources/binaries/nc.exe ~/transfers
 # Copy /usr/share/windows-resources/binaries/plink.exe to the ~/transfers directory
+cp /usr/share/windows-resources/binaries/plink.exe ~/transfers
 # Copy /usr/share/windows-resources/binaries/wget.exe to the ~/transfers directory
+cp /usr/share/windows-resources/binaries/wget.exe ~/transfers
 # Copy cp -R /usr/share/windows-resources/binaries/nbtenum to the ~/transfers directory
+cp -R /usr/share/windows-resources/binaries/nbtenum ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/mbenum to the ~/transfers directory
+cp -R /usr/share/windows-resources/binaries/mbenum ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/enumplus to the ~/transfers directory
+cp -R /usr/share/windows-resources/binaries/enumplus ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/fgdump to the ~/transfers directory
+cp -R /usr/share/windows-resources/binaries/fgdump ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
+cp -R /usr/share/windows-resources/binaries/fport ~/transfers/
 
 
 ## Install ShellCheck - A shell script static analysis tool
@@ -176,10 +201,6 @@ pip3 install kerbrute
 # Install wine
 sudo dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
-# Setup fuse group and add user to fuse group for sshfs use
-sudo groupadd fuse
-sudo usermod -a -G fuse rstrom
-
 
 # Install vsftpd
 # How To Set Up vsftpd for a User's Directory on Ubuntu 20.04
@@ -231,8 +252,6 @@ sudo atftpd --daemon --port 69 /tftp
 # Install urlencode
 sudo apt install gridsite-clients -y
 
-# Install sshfs
-sudo apt install sshfs -y
 
 # Save the ps_encoder.py script to the ~/Documents/scripts/python directory
 # https://github.com/darkoperator/powershell_scripts/blob/master/ps_encoder.py
@@ -255,6 +274,9 @@ sudo apt -y install kali-screensaver
 sudo apt -y install hollywood-activate
 # Start the screensaver with the command below
 # hollywood-activate
+
+# Install Kali Wallpapers
+sudo apt install kali-wallpapers-all -y
 
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
