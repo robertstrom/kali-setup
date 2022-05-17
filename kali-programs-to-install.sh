@@ -88,6 +88,9 @@ sudo apt install xclip -y
 ## Install Dolphin
 sudo apt install dolphin -y
 
+# Install Krusader
+sudo apt install krusader -y
+
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
 # https://github.com/RustScan/RustScan/wiki/Installation-Guide
