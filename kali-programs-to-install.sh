@@ -54,7 +54,7 @@ sudo usermod -a -G fuse rstrom
 # Install sshfs
 sudo apt install sshfs -y
 
-export qnap='192.168.0.99'
+## export qnap='192.168.0.99'
 
 sshfs rstrom@$qnap: ~/QNAPMyDocs
 
@@ -123,6 +123,11 @@ sudo apt install dolphin -y
 
 # Install Krusader
 sudo apt install krusader -y
+sudo apt install kdiff3 -y
+sudo apt install krename -y
+sudo apt install kompare -y
+sudo apt install xxdiff -y
+sudo apt install krename -y
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
@@ -291,4 +296,7 @@ sudo apt autoremove --purge -y
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
-source ~/.zshrc
+echo " "
+echo "The installation and configuration of this new Kali build has completed"
+echo "Happy Hacking!"
+# source ~/.zshrc
