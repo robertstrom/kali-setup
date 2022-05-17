@@ -174,7 +174,7 @@ sudo apt install kde-spectacle -y
 ## https://github.com/ksnip/ksnip/releases/tag/v1.9.2
 # wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage
 
-## Install Falmeshot
+## Install Flameshot
 sudo apt install flameshot -y
 
 ## Install Web Recon programs
