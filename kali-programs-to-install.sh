@@ -1,5 +1,7 @@
 #!/bin/bash
 
+scriptstarttime=$(date)
+
 # Kali Setup programs to be installed and configuration changes needed
 
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
@@ -296,6 +298,12 @@ sudo apt autoremove --purge -y
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
+
+scriptendtime=$(date)
+echo " "
+echo "The script started at $scriptstarttime"
+echo " "
+echo "The script completed at $scriptendtime"
 echo " "
 echo "The installation and configuration of this new Kali build has completed"
 echo "Happy Hacking!"
