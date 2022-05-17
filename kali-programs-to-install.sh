@@ -235,3 +235,6 @@ sudo apt -y install kali-screensaver
 sudo apt -y install hollywood-activate
 # Start the screensaver with the command below
 hollywood-activate
+
+# Pull down the custom Kali .zshrc file from GitHub
+wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
