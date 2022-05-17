@@ -286,6 +286,8 @@ sudo apt -y install hollywood-activate
 # Install Kali Wallpapers
 sudo apt install kali-wallpapers-all -y
 
+sudo apt autoremove --purge -y
+
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
