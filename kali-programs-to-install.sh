@@ -68,14 +68,20 @@ cd ~
 
 # Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
 # Copy mimikatz.exe to the ~/transfers directory
+cp -R /usr/share/windows-resources/mimikatz/ ~/transfers/
 # Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
+wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/archive/refs/heads/master.zip -O ~/transfers/Ghostpack-CompiledBinaries-master.zip
+pushd ~/transfers
+unzip Ghostpack-CompiledBinaries-master.zip
+popd
 # Copy sbd.exe  to the ~/transfers directory
+cp /usr/share/windows-resources/sbd/sbd.exe ~/transfers/
 # Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
-cp /usr/share/windows-resources/binaries/nc.exe ~/transfers
+cp /usr/share/windows-resources/binaries/nc.exe ~/transfers/
 # Copy /usr/share/windows-resources/binaries/plink.exe to the ~/transfers directory
-cp /usr/share/windows-resources/binaries/plink.exe ~/transfers
+cp /usr/share/windows-resources/binaries/plink.exe ~/transfers/
 # Copy /usr/share/windows-resources/binaries/wget.exe to the ~/transfers directory
-cp /usr/share/windows-resources/binaries/wget.exe ~/transfers
+cp /usr/share/windows-resources/binaries/wget.exe ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/nbtenum to the ~/transfers directory
 cp -R /usr/share/windows-resources/binaries/nbtenum ~/transfers/
 # Copy cp -R /usr/share/windows-resources/binaries/mbenum to the ~/transfers directory
