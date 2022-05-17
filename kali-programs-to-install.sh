@@ -10,23 +10,58 @@
 # Configure shared folder in VMware to point to the folder on the VMware host and leave shared folders enable
 # Add this line to the /etc/fstab file
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
+sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
 
 
 ## pimpmykali - https://github.com/Dewalt-arch/pimpmykali
-sudo git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
-rm -rf /opt/pimpmykali/
-cd /opt/pimpmykali
-sudo ./pimpmykali.sh
-cd  /
+# sudo git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
+# rm -rf /opt/pimpmykali/
+# cd /opt/pimpmykali
+# sudo ./pimpmykali.sh
+# cd  /
 
 ## Install exa
 sudo apt install exa -y
 ## Add exa aliases to ls to the zsh profile
+## This will be done when the .zshrc profile is downloaded from GitHub at the end of this configuration
 
 ## Create directory for storing downloaded exploits, etc.
 
 cd ~
 mkdir exploits
+
+# Create directory for sshfs mount for QNAP NAS
+mkdir -p ~/QNAPMyDocs
+
+# Create directories for python and PowerShell scripts
+mkdir -p ~/Documents/scripts/python/
+mkdir -p ~/Documents/scripts/PowerShell
+
+# Create a directory for mounting remote SMB shares
+mkdir ~/SMBmount
+
+
+## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
+mkdir ~/transfers
+mkdir -p  ~/transfers/Sysinternals
+
+# PSTools
+# Additional Sysinternals tools needed
+# procdump
+
+# Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
+# Copy mimikatz.exe to the ~/transfers directory
+# Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
+# Copy sbd.exe  to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/plink.exe to the ~/transfers directory
+# Copy /usr/share/windows-resources/binaries/wget.exe to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/nbtenum to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/mbenum to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/enumplus to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/fgdump to the ~/transfers directory
+# Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
+
 
 ## Install ShellCheck - A shell script static analysis tool
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
@@ -44,7 +79,7 @@ sudo apt install terminator -y
 ## Install Copyq
 # https://github.com/hluk/CopyQ
 # https://github.com/hluk/CopyQ/releases/latest
-sudo apt install copyq -y
+# sudo apt install copyq -y
 
 ## Install xclip
 sudo apt install xclip -y
@@ -57,8 +92,9 @@ sudo apt install dolphin -y
 # https://overide.medium.com/rustscan-fcbdb93e17c9
 # https://github.com/RustScan/RustScan/wiki/Installation-Guide
 # https://github.com/RustScan/RustScan/releases/
-wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -o rustscan_2.0.1_amd64.deb
+wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -O rustscan_2.0.1_amd64.deb
 sudo dpkg -i rustscan_2.0.1_amd64.deb
+rm -rf rustscan_2.0.1_amd64.deb
 
 # Install nmapAutomater
 git clone https://github.com/21y4d/nmapAutomator.git
@@ -68,10 +104,10 @@ sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
 pip3 install wesng
 
 # Install PowerShell Empire
-sudo apt install powershell-empire -y
+# sudo apt install powershell-empire -y
 
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
-sudo apt-get install software-properties-common -y
+# sudo apt-get install software-properties-common -y
 
 ## Install Spectacle screenshot utility
 sudo apt install kde-spectacle -y
@@ -81,7 +117,7 @@ sudo apt install kde-spectacle -y
 ## sudo apt install ksnip
 ## The Ksnip AppImage is working correctly
 ## https://github.com/ksnip/ksnip/releases/tag/v1.9.2
-wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage
+# wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage
 
 ## Install Falmeshot
 sudo apt install flameshot -y
@@ -124,29 +160,9 @@ sudo apt install html2text -y
 ## Install csvkit
 sudo apt install csvkit -y
 
-
-## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
-mkdir ~/transfers
-mkdir ~/transfers/Sysinternals
-# PSTools
-# Additional Sysinternals tools needed
-# procdump
-
-# Copy all current mkdir Sysinternals tools to the mkdir ~/transfers/Sysinternals directory
-# Copy mimikatz.exe to the ~/transfers directory
-# Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
-# Copy sbd.exe  to the ~/transfers directory
-# Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
-# Copy /usr/share/windows-resources/binaries/plink.exe to the ~/transfers directory
-# Copy /usr/share/windows-resources/binaries/wget.exe to the ~/transfers directory
-# Copy cp -R /usr/share/windows-resources/binaries/nbtenum to the ~/transfers directory
-# Copy cp -R /usr/share/windows-resources/binaries/mbenum to the ~/transfers directory
-# Copy cp -R /usr/share/windows-resources/binaries/enumplus to the ~/transfers directory
-# Copy cp -R /usr/share/windows-resources/binaries/fgdump to the ~/transfers directory
-# Copy cp -R /usr/share/windows-resources/binaries/fport to the ~/transfers directory
-
 # evil-winrm
-sudo apt install evil-winrm -y
+## This is now install by default in Kali 2022.2
+## sudo apt install evil-winrm -y
 
 # Install Remmina
 sudo apt install remmina -y
@@ -155,14 +171,12 @@ sudo apt install remmina -y
 pip3 install kerbrute
 
 # Install wine
-dpkg --add-architecture i386 && apt-get update && apt-get install wine32
+sudo dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
 
-# Create a directory for mounting remote SMB shares
-mkdir ~/SMBmount
 
 # Install vsftpd
 # How To Set Up vsftpd for a User's Directory on Ubuntu 20.04
@@ -179,7 +193,7 @@ sudo mkdir -p /home/ftp/ftp/files
 sudo chown ftp:ftp /home/ftp/ftp/files
 
 # Install Pure-FTPd
-sudo apt update && sudo apt install pure-ftpd
+sudo apt update && sudo apt install pure-ftpd -y
 # Create users and configuration
 # Run this as root, not sudo, or the two commands to create the link to the PureDB will not work
 #!/bin/bash
@@ -212,7 +226,10 @@ sudo chown nobody: /tftp
 sudo atftpd --daemon --port 69 /tftp
 
 # Install urlencode
-sudo apt install gridsite-clients
+sudo apt install gridsite-clients -y
+
+# Install sshfs
+sudo apt install sshfs -y
 
 # Save the ps_encoder.py script to the ~/Documents/scripts/python directory
 # https://github.com/darkoperator/powershell_scripts/blob/master/ps_encoder.py
@@ -221,7 +238,7 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 
 # Install shelter (may already be installed)
 # Dynamic shellcode injection tool and dynamic PE infector
-sudo apt install shellter
+sudo apt install shellter -y
 
 # Install the Veil framework
 # https://github.com/Veil-Framework/Veil
@@ -234,7 +251,7 @@ sudo apt install veil -y
 sudo apt -y install kali-screensaver
 sudo apt -y install hollywood-activate
 # Start the screensaver with the command below
-hollywood-activate
+# hollywood-activate
 
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
