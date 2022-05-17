@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Kali Setup programs to be installed and configuration changes needed
 
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
