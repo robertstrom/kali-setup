@@ -241,8 +241,9 @@ sudo groupadd ftpgroup
 sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
 sudo pure-pw useradd offsec -u ftpuser -d /ftphome
 sudo pure-pw mkdb
-# The cd command below does not work if you are not not running as root
-sudo cd /etc/pure-ftpd/auth/
+# The sudo cd command below does not work if you are not not running as root
+# sudo cd /etc/pure-ftpd/auth/
+cd /etc/pure-ftpd/auth
 # If you do not get cd'd into the directory above the command to create a link below will not work and then the user logons will not work
 sudo ln -s ../conf/PureDB 60pdb
 sudo mkdir -p /ftphome
