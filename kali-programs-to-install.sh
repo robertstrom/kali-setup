@@ -19,6 +19,13 @@ scriptstarttime=$(date)
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
 sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
 
+# Install Visual Studio Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+## sudo apt update
+## sudo apt install code -y
+
 
 ## pimpmykali - https://github.com/Dewalt-arch/pimpmykali
 # sudo git clone https://github.com/Dewalt-arch/pimpmykali /opt/pimpmykali
@@ -55,6 +62,8 @@ mkdir -p  ~/transfers/Sysinternals
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
+
+sudo apt update && sudo apt upgrade -y
 
 # Install sshfs
 sudo apt install sshfs -y
@@ -103,45 +112,12 @@ cp -R /usr/share/windows-resources/binaries/fport ~/transfers/
 
 ## Install ShellCheck - A shell script static analysis tool
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
-sudo apt install shellcheck
-
 ## Install progress viewer
-sudo apt install pv -y
-
 # Install Geany IDE / Editor
-sudo apt install geany -y
 
-# Install Terminator
-sudo apt install terminator -y
+sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
+flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activate install kali-screensaver vsftpd pure-ftpd code gridsite-clients shellter
 
-## Install Copyq
-# https://github.com/hluk/CopyQ
-# https://github.com/hluk/CopyQ/releases/latest
-sudo apt install copyq -y
-
-## Install xclip
-sudo apt install xclip -y
-## Add xclip aliases to the .zshrc profile
-
-## Install Dolphin
-sudo apt install dolphin -y
-
-# Install Krusader
-sudo apt install krusader -y
-sudo apt install kdiff3 -y
-sudo apt install krename -y
-sudo apt install kompare -y
-sudo apt install xxdiff -y
-sudo apt install krename -y
-
-# Install Visual Studio Code
-sudo apt update
-sudo apt install curl gpg gnupg2 software-properties-common apt-transport-https 
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-sudo apt update
-sudo apt install code -y
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
@@ -164,18 +140,6 @@ pip3 install wesng
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
 # sudo apt-get install software-properties-common -y
 
-## Install Spectacle screenshot utility
-sudo apt install kde-spectacle -y
-
-## Add Ksnip screenshot utility
-## Ksnip looks good but seems to behave strangely in a VM
-## sudo apt install ksnip
-## The Ksnip AppImage is working correctly
-## https://github.com/ksnip/ksnip/releases/tag/v1.9.2
-# wget https://github.com/ksnip/ksnip/releases/download/v1.9.2/ksnip-1.9.2-x86_64.AppImage
-
-## Install Flameshot
-sudo apt install flameshot -y
 
 ## Install Web Recon programs
 ## httprobe
@@ -202,25 +166,14 @@ unzip v3.zip
 ## https://github.com/sc0tfree/updog
 pip3 install updog
 
-## html2text
-sudo apt install html2text -y
-
 ## The mkpsrevshell.py script from - https://gist.github.com/tothi/ab288fb523a4b32b51a53e542d40fe58
 ## This script creates an encoded PowerShell reverse shell
 ## I have created a copy of this script renaming it to make-powershell-base64-reverse-shell.py
-
-## The ps_encoder.py script
-## https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py
-
-## Install csvkit
-sudo apt install csvkit -y
 
 # evil-winrm
 ## This is now install by default in Kali 2022.2
 ## sudo apt install evil-winrm -y
 
-# Install Remmina
-sudo apt install remmina -y
 
 # Install kerbrute
 pip3 install kerbrute
@@ -234,7 +187,7 @@ sudo dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-20-04
 # How to Setup FTP Server with VSFTPD
 # https://adamtheautomator.com/vsftpd/
-sudo apt install vsftpd -y
+## sudo apt install vsftpd -y
 sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo adduser ftp
 sudo mkdir -p /home/ftp/ftp
@@ -244,7 +197,7 @@ sudo mkdir -p /home/ftp/ftp/files
 sudo chown ftp:ftp /home/ftp/ftp/files
 
 # Install Pure-FTPd
-sudo apt update && sudo apt install pure-ftpd -y
+# sudo apt update && sudo apt install pure-ftpd -y
 # Create users and configuration
 # Run this as root, not sudo, or the two commands to create the link to the PureDB will not work
 #!/bin/bash
@@ -264,7 +217,7 @@ sudo systemctl restart pure-ftpd
 
 # Install Python HTTP Upload server
 # https://pypi.org/project/uploadserver/
-pip install uploadserver
+pip3 install uploadserver
 ## Usage = python3 -m uploadserver
 ## python3 -m uploadserver 80
 
@@ -274,11 +227,8 @@ sudo apt install atftp -y
 sudo mkdir /tftp
 # Configure the permissions for the TFTP server files
 sudo chown nobody: /tftp
-# Start the TFTP server
-sudo atftpd --daemon --port 69 /tftp
-
-# Install urlencode
-sudo apt install gridsite-clients -y
+# Command to start the TFTP server
+# sudo atftpd --daemon --port 69 /tftp
 
 
 # Save the ps_encoder.py script to the ~/Documents/scripts/python directory
@@ -286,9 +236,6 @@ sudo apt install gridsite-clients -y
 wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps_encoder.py -O ~/Documents/scripts/python/ps_encoder.py
 chmod +x ~/Documents/scripts/python/ps_encoder.py
 
-# Install shelter (may already be installed)
-# Dynamic shellcode injection tool and dynamic PE infector
-sudo apt install shellter -y
 
 # Install the Veil framework
 # https://github.com/Veil-Framework/Veil
@@ -297,14 +244,6 @@ sudo apt install shellter -y
 sudo apt install veil -y
 /usr/share/veil/config/setup.sh --force --silent
 
-# Install the Hollywood Activate / Kali Screensaver (April Fools)
-sudo apt -y install kali-screensaver
-sudo apt -y install hollywood-activate
-# Start the screensaver with the command below
-# hollywood-activate
-
-# Install Kali Wallpapers
-sudo apt install kali-wallpapers-all -y
 
 sudo apt autoremove --purge -y
 
