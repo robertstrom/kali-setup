@@ -116,7 +116,7 @@ cp -R /usr/share/windows-resources/binaries/fport ~/transfers/
 # Install Geany IDE / Editor
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
-flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activate install kali-screensaver vsftpd pure-ftpd code gridsite-clients shellter
+flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activate install kali-screensaver vsftpd pure-ftpd code gridsite-clients shellter sipcalc
 
 
 # Install rustscan
