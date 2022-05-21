@@ -245,6 +245,9 @@ fi
 ## alias ll='ls -l'
 ## alias la='ls -A'
 ## alias l='ls -CF'
+
+akias cls='clear'
+
 alias ls='exa'                                                              # ls
 alias l='exa -lbF'                                                          # list, size, type, git
 alias ll='exa -lbGF'                                                        # long list
