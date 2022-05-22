@@ -43,6 +43,10 @@ sudo apt install exa -y
 
 cd ~
 mkdir exploits
+mkdir wordlists
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+sudo cp /usr/share/wordlists/rockyou.txt ~/wordlists/
+cat ~/rockyou.txt | head -n 1000 > ~/wordlists/rockyou-1000.txt
 
 # Create directory for sshfs mount for QNAP NAS
 mkdir -p ~/QNAPMyDocs
