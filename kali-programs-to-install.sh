@@ -258,6 +258,10 @@ sudo apt autoremove --purge -y
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
 
+# Configure SAMBA to a minimum SMB version of SMBv2 - for Windows 2016 and above
+sudo bash -c 'echo "" >> /etc/samba/smb.conf'
+sudo bash -c 'echo "min protocol = SMB2" >> /etc/samba/smb.conf'
+
 scriptendtime=$(date)
 echo " "
 echo "The script started at $scriptstarttime"
