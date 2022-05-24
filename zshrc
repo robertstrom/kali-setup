@@ -461,6 +461,12 @@ disconnect-remote-SMB-share() {
 sudo umount /home/rstrom/SMBMount
 }
 
+nmap-xml-to-html() {
+infile=$1
+outfile=$(echo $infile | sed 's/xml/html/')
+xsltproc $infile -o $outfile
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
