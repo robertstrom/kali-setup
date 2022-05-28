@@ -467,6 +467,17 @@ outfile=$(echo $infile | sed 's/xml/html/')
 xsltproc $infile -o $outfile
 }
 
+convert-NT-DateTime() {
+	echo "Please enter the NT Date String"
+	read ntdate
+	nanotime="$ntdate"
+	let "seconds = (($nanotime / 10000000))"
+	let "epoch = (($seconds - 11644473600))"
+	echo ""
+	echo "The NT timestamp conversion translates to this date and time:"
+	date -d@$epoch
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
