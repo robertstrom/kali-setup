@@ -498,6 +498,10 @@ echo ""
 cat  /home/rstrom/.john/john.pot
 }
 
+ConvertTo-NTLMPasswordHash() {
+smbencrypt $1
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
