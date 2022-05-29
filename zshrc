@@ -478,6 +478,14 @@ convert-NT-DateTime() {
 	date -d@$epoch
 }
 
+delete-hashcat-potfile() {
+rm  /home/rstrom/.local/share/hashcat/hashcat.potfile
+}
+
+delete-john-potfile() {
+rm  /home/rstrom/.john/john.pot
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
