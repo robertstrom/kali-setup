@@ -486,6 +486,14 @@ delete-john-potfile() {
 rm  /home/rstrom/.john/john.pot
 }
 
+list-hashcat-potfile() {
+cat  /home/rstrom/.local/share/hashcat/hashcat.potfile
+}
+
+list-john-potfile() {
+cat  /home/rstrom/.john/john.pot
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
