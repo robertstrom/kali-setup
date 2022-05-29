@@ -61,6 +61,8 @@ mkdir -p ~/Documents/scripts/PowerShell
 # Create a directory for mounting remote SMB shares
 mkdir ~/SMBmount
 
+# Create a working directory for temp type actions
+mkdir ~/working
 
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
 mkdir ~/transfers
