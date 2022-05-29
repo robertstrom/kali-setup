@@ -487,10 +487,12 @@ rm  /home/rstrom/.john/john.pot
 }
 
 list-hashcat-potfile() {
+echo "The contents of the /home/rstrom/.local/share/hashcat/hashcat.potfile file is:"
 cat  /home/rstrom/.local/share/hashcat/hashcat.potfile
 }
 
 list-john-potfile() {
+echo "The contents of the /home/rstrom/.john/john.pot file is:"
 cat  /home/rstrom/.john/john.pot
 }
 
