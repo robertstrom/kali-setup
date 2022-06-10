@@ -253,6 +253,8 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 sudo apt install veil -y
 /usr/share/veil/config/setup.sh --force --silent
 
+# Install rlwrap for better / more stable reverse shells
+sudo apt install rlwrap
 
 sudo apt autoremove --purge -y
 
