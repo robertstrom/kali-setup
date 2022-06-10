@@ -256,6 +256,9 @@ sudo apt install veil -y
 # Install rlwrap for better / more stable reverse shells
 sudo apt install rlwrap
 
+# Install KDE partition manager
+sudo apt-get install partitionmanager
+
 sudo apt autoremove --purge -y
 
 # Pull down the custom Kali .zshrc file from GitHub
