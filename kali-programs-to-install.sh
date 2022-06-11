@@ -261,6 +261,9 @@ sudo apt install -y partitionmanager
 
 sudo apt install -y neofetch lolcat
 
+# Install Kali Undercover - make Kali look like Windows 10
+sudo apt install -y kali-undercover
+
 sudo apt autoremove --purge -y
 
 # Pull down the custom Kali .zshrc file from GitHub
