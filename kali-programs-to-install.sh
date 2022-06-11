@@ -257,7 +257,9 @@ sudo apt install veil -y
 sudo apt install rlwrap
 
 # Install KDE partition manager
-sudo apt-get install partitionmanager
+sudo apt install -y partitionmanager
+
+sudo apt install -y neofetch lolcat
 
 sudo apt autoremove --purge -y
 
