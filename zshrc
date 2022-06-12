@@ -502,6 +502,37 @@ ConvertTo-NTLMPasswordHash() {
 smbencrypt $1
 }
 
+pwk_ips() {
+  # From https://gist.github.com/joaociocca/cfe0fd9ddf7d2e03caccc4a6e95ff073
+  cyan=$(tput setaf 6)
+  magenta=$(tput setaf 5)
+  bold=$(tput bold)
+  normal=$(tput sgr0)
+  localIP=$(ip -br a s dev tun0 | sed -r 's#( )+|/# #g' | awk '{print $3}')
+  winClientIP=$(awk -F'.' '{print $1"."$2"."$4".10"}' <<< "$localIP")
+  winServerIP=$(awk -F'.' '{print "172.16."$4".5"}' <<< "$localIP")
+  linuxClientIP=$(awk -F'.' '{print $1"."$2"."$4".44"}' <<< "$localIP")
+  linuxTargetIP=$(awk -F'.' '{print $1"."$2"."$4".52"}' <<< "$localIP")
+  lblLocal="${bold}${cyan}localIP${normal}"
+  ipLocal="${magenta}${localIP}"
+  lblWinCT="${bold}${cyan}winClient/TargetIP${normal}"
+  ipWinCT="${magenta}${winClientIP}"
+  lblWinServer="${bold}${cyan}winServerIP${normal}"
+  ipWinServer="${magenta}${winServerIP}"
+  lblLinuxClient="${bold}${cyan}linuxClientIP${normal}"
+  ipLinuxClient="${magenta}${linuxClientIP}"
+  lblLinuxTarget="${bold}${cyan}linuxTargetIP${normal}"
+  ipLinuxTarget="${magenta}${linuxTargetIP}"
+  export localIP winClientIP winServerIP linuxClientIP linuxTargetIP
+  result=$(cat <<EOF
+$lblLocal\t\t\t$ipLocal
+$lblWinCT\t$ipWinCT\t$lblWinServer\t$ipWinServer
+$lblLinuxClient\t\t$ipLinuxClient\t$lblLinuxTarget\t$ipLinuxTarget
+EOF
+)
+  echo "$result"
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
