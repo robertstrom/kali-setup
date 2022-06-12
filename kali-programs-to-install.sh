@@ -43,6 +43,7 @@ sudo apt install exa -y
 
 cd ~
 mkdir exploits
+mkdir ~/exploits/msf_scripts
 mkdir wordlists
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 sudo cp /usr/share/wordlists/rockyou.txt ~/wordlists/
