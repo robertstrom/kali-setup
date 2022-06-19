@@ -128,7 +128,7 @@ cp -R /usr/share/windows-resources/binaries/fport ~/transfers/
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activate install kali-screensaver vsftpd pure-ftpd code gridsite-clients shellter sipcalc \
-xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr
+xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
