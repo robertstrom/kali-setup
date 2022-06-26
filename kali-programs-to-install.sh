@@ -53,6 +53,14 @@ cat ~/rockyou.txt | head -n 500 > ~/wordlists/rockyou-500.txt
 cat ~/rockyou.txt | head -n 5000 > ~/wordlists/rockyou-5000.txt
 cat ~/rockyou.txt | head -n 10000 > ~/wordlists/rockyou-10000.txt
 
+# Create a directory for CherryTree content in the ~/Documents directory
+mkdir ~/Documents/CherryTree
+# Download some CherryTree templates
+pushd  ~/Documents/CherryTree
+wget https://github.com/unmeg/hax/raw/master/BOX-SKELETON.ctb
+wget https://411hall.github.io/assets/files/CTF_template.ctb
+popd
+
 # Create directory for sshfs mount for QNAP NAS
 mkdir -p ~/QNAPMyDocs
 
@@ -275,6 +283,10 @@ wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.z
 # Configure SAMBA to a minimum SMB version of SMBv2 - for Windows 2016 and above
 sudo bash -c 'echo "" >> /etc/samba/smb.conf'
 sudo bash -c 'echo "min protocol = SMB2" >> /etc/samba/smb.conf'
+
+# Clone the Invoke-SocksProxy repo
+cd ~/exploits
+git clone https://github.com/tokyoneon/Invoke-SocksProxy.git
 
 scriptendtime=$(date)
 echo " "
