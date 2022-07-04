@@ -373,7 +373,7 @@ stop-apache-web-server() {
 }
 
 start-metasploit-database() {
-        systemctl start postgresql
+        sudo systemctl start postgresql
 }
 
 set-rdp-connection-info() {
