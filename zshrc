@@ -372,6 +372,10 @@ stop-apache-web-server() {
 	sudo systemctl stop apache2
 }
 
+start-metasploit-database() {
+        systemctl start postgresql
+}
+
 set-rdp-connection-info() {
     echo "Please enter the username"
     read rdp_user_name
