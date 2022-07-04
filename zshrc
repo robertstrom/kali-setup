@@ -376,6 +376,11 @@ start-metasploit-database() {
         sudo systemctl start postgresql
 }
 
+start-bash-shell-for-reverse-shell() {
+        exec bash --login
+        ps -p $$
+}
+
 set-rdp-connection-info() {
     echo "Please enter the username"
     read rdp_user_name
