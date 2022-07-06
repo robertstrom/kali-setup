@@ -14,7 +14,9 @@ setopt notify              	# report the status of background jobs immediately
 setopt numericglobsort     	# sort filenames numerically when it makes sense
 setopt promptsubst         	# enable command substitution in prompt
 setopt EXTENDED_HISTORY		# record command start time
+# setopt INC_APPEND_HISTORY
 setopt INC_APPEND_HISTORY_TIME	# append command to history file immediately after execution
+# setopt share_history
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -246,7 +248,7 @@ fi
 ## alias la='ls -A'
 ## alias l='ls -CF'
 
-akias cls='clear'
+alias cls='clear'
 
 alias ls='exa'                                                              # ls
 alias l='exa -lbF'                                                          # list, size, type, git
@@ -268,7 +270,6 @@ alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complet
 
 # alias to VMware Shared folder /mnt/hgfs/host
 alias SharedHostFolder="cd /mnt/hgfs/host"
-
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -373,12 +374,12 @@ stop-apache-web-server() {
 }
 
 start-metasploit-database() {
-        sudo systemctl start postgresql
+	sudo systemctl start postgresql
 }
 
 start-bash-shell-for-reverse-shell() {
-        exec bash --login
-        ps -p $$
+	exec bash --login
+	ps -p $$
 }
 
 set-rdp-connection-info() {
@@ -438,6 +439,10 @@ sshfs rstrom@qnap: ~/QNAPMyDocs
 
 connect-rstrom-XPS-15-9550-sshfs() {
 sshfs rstrom@rstrom-XPS-15-9550: ~/RStromXPS15
+}
+
+connect-QNAP-VirtualMachines-sshfs() {
+sshfs qnap:'/share/CACHEDEV1_DATA/Virtual Machines/' ~/QNAPVirtualMachines
 }
 
 connect-remote-SMB-share() {
@@ -511,41 +516,9 @@ ConvertTo-NTLMPasswordHash() {
 smbencrypt $1
 }
 
-pwk_ips() {
-  # From https://gist.github.com/joaociocca/cfe0fd9ddf7d2e03caccc4a6e95ff073
-  cyan=$(tput setaf 6)
-  magenta=$(tput setaf 5)
-  bold=$(tput bold)
-  normal=$(tput sgr0)
-  localIP=$(ip -br a s dev tun0 | sed -r 's#( )+|/# #g' | awk '{print $3}')
-  winClientIP=$(awk -F'.' '{print $1"."$2"."$4".10"}' <<< "$localIP")
-  winServerIP=$(awk -F'.' '{print "172.16."$4".5"}' <<< "$localIP")
-  linuxClientIP=$(awk -F'.' '{print $1"."$2"."$4".44"}' <<< "$localIP")
-  linuxTargetIP=$(awk -F'.' '{print $1"."$2"."$4".52"}' <<< "$localIP")
-  lblLocal="${bold}${cyan}localIP${normal}"
-  ipLocal="${magenta}${localIP}"
-  lblWinCT="${bold}${cyan}winClient/TargetIP${normal}"
-  ipWinCT="${magenta}${winClientIP}"
-  lblWinServer="${bold}${cyan}winServerIP${normal}"
-  ipWinServer="${magenta}${winServerIP}"
-  lblLinuxClient="${bold}${cyan}linuxClientIP${normal}"
-  ipLinuxClient="${magenta}${linuxClientIP}"
-  lblLinuxTarget="${bold}${cyan}linuxTargetIP${normal}"
-  ipLinuxTarget="${magenta}${linuxTargetIP}"
-  export localIP winClientIP winServerIP linuxClientIP linuxTargetIP
-  result=$(cat <<EOF
-$lblLocal\t\t\t$ipLocal
-$lblWinCT\t$ipWinCT\t$lblWinServer\t$ipWinServer
-$lblLinuxClient\t\t$ipLinuxClient\t$lblLinuxTarget\t$ipLinuxTarget
-EOF
-)
-  echo "$result"
-}
-
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
 ### KRB5CCNAME=~/SamiraA.ccache
 ### This:
 ### KRB5CCNAME=/home/rstrom/SamiraA.ccache
-
