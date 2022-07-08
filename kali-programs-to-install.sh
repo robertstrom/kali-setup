@@ -296,6 +296,15 @@ pushd /usr/bin
 sudo ln -s /opt/penelope.py penelope-reverse-shell
 popd
 
+# Download the ConPtyShell for Windows and place it in the ~/transfers directory
+pushd ~/transfers
+wget https://github.com/antonioCoco/ConPtyShell/releases/download/1.5/ConPtyShell.zip
+unzip ConPtyShell.zip
+curl https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -o Invoke-ConPtyShell.ps1
+unix2dos Invoke-ConPtyShell.ps1
+rm -rf ConPtyShell.zip
+popd
+
 scriptendtime=$(date)
 echo " "
 echo "The script started at $scriptstarttime"
