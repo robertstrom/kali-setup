@@ -288,6 +288,14 @@ sudo bash -c 'echo "min protocol = SMB2" >> /etc/samba/smb.conf'
 cd ~/exploits
 git clone https://github.com/tokyoneon/Invoke-SocksProxy.git
 
+# Download and "install" the penelope.py Advanced Shell Handler
+pushd /opt
+sudo wget https://raw.githubusercontent.com/brightio/penelope/main/penelope.py
+popd
+pushd /usr/bin
+sudo ln -s /opt/penelope.py penelope-reverse-shell
+popd
+
 scriptendtime=$(date)
 echo " "
 echo "The script started at $scriptstarttime"
