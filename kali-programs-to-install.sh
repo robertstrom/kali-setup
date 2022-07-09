@@ -131,6 +131,8 @@ cp -R /usr/share/windows-resources/binaries/fport ~/transfers/
 wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/ncat -O ~/transfers/Nmap_static/ncat && chmod +x ~/transfers/Nmap_static/ncat
 # Copy socat static binary to the ~/transfers/Nmap_static directory
 wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O ~/transfers/socat && chmod +x ~/transfers/socat
+# Copy the linux-smart-enumeration to the ~/exploits directory
+wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh -O ~/exploits/lse.sh && chmod +x ~/exploits/lse.sh
 
 
 ## Install ShellCheck - A shell script static analysis tool
