@@ -156,6 +156,22 @@ rm -rf rustscan_2.0.1_amd64.deb
 git clone https://github.com/21y4d/nmapAutomator.git
 sudo ln -s $(pwd)/nmapAutomator/nmapAutomator.sh /usr/local/bin/
 
+# Install nmap-converter
+pushd /opt
+sudo git clone https://github.com/mrschyte/nmap-converter.git
+sudo pip install python-libnmap
+sudo pip install XlsxWriter
+sudo chown rstrom -R ./nmap-converter
+pythonvar=$(which python3)
+sed -i "s|/usr\/bin/env python|$pythonvar|" ./nmap-converter/nmap-converter.py
+unset pythonvar
+cd /usr/bin
+sudo ln -s /opt/nmap-converter/nmap-converter.py nmap-converter 
+sudo chown -R rstrom nmap-converter
+popd
+popd
+
+
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
 
