@@ -328,7 +328,10 @@ rm -rf ConPtyShell.zip
 popd
 
 # Install pwncat - https://robertscocca.medium.com/upgrade-your-common-hacking-tools-45ba700d42bb
-pip install git+https://github.com/calebstewart/pwncat.git
+sudo apt install python3.10-venv
+python3 -m venv pwncat-env
+source pwncat-env/bin/activate
+pip install pwncat-cs
 
 scriptendtime=$(date)
 echo " "
