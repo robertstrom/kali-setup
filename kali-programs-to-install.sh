@@ -142,7 +142,7 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activate install kali-screensaver vsftpd pure-ftpd code gridsite-clients shellter sipcalc \
-xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch pwncat
+xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
@@ -326,6 +326,9 @@ curl https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-Con
 unix2dos Invoke-ConPtyShell.ps1
 rm -rf ConPtyShell.zip
 popd
+
+# Install pwncat - https://robertscocca.medium.com/upgrade-your-common-hacking-tools-45ba700d42bb
+pip install git+https://github.com/calebstewart/pwncat.git
 
 scriptendtime=$(date)
 echo " "
