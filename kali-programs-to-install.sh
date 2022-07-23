@@ -313,6 +313,7 @@ git clone https://github.com/tokyoneon/Invoke-SocksProxy.git
 # Download and "install" the penelope.py Advanced Shell Handler
 pushd /opt
 sudo wget https://raw.githubusercontent.com/brightio/penelope/main/penelope.py
+sudo chmod +x penelope.py
 popd
 pushd /usr/bin
 sudo ln -s /opt/penelope.py penelope-reverse-shell
