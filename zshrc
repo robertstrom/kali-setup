@@ -485,6 +485,14 @@ connect-remote-SMB-domain-share() {
     sudo mount -t cifs -o gid=1000,uid=1000,vers=2.0,username=$smb_user_name,domain=$smb_domain_name,password=$smb_user_password //$smb_ip_address/$smb_share /home/rstrom/SMBMount
 }
 
+connect-remote-SMB-share-guest() {
+    echo "Please enter the IP Address of the SMB server to connect to"
+    read smb_ip_address
+    echo "Please enter the name of the SMB share to connect to"
+    read smb_share
+    sudo mount -t cifs -o gid=1000,uid=1000,vers=2.0,username=guest,password="" //$smb_ip_address/$smb_share /home/rstrom/SMBMount
+}
+
 disconnect-remote-SMB-share() {
 cd ~
 sudo umount /home/rstrom/SMBMount
