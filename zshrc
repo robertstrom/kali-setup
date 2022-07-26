@@ -14,9 +14,10 @@ setopt notify              	# report the status of background jobs immediately
 setopt numericglobsort     	# sort filenames numerically when it makes sense
 setopt promptsubst         	# enable command substitution in prompt
 setopt EXTENDED_HISTORY		# record command start time
+# Turn off setopt INC_APPEND_HISTORY if setopt share_history is enabled
 # setopt INC_APPEND_HISTORY
 setopt INC_APPEND_HISTORY_TIME	# append command to history file immediately after execution
-# setopt share_history
+setopt share_history
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
@@ -261,8 +262,9 @@ alias lt='exa --tree --level=2'                                             # tr
 # requires that xclip be installed
 # Alias to send text from terminal to clipboard
 # This is usually via using cat to output the file and then pipe it to xclip
-alias clip="xclip -selection clipboard"
-alias xclip='xclip -selection clipboard'
+alias clip="xclip -selection clipboard -rmlastnl"
+## 2022-07-16 - Trying new xclip aliases
+# alias xclip='xclip -selection clipboard -rmlastnl'
 alias paste="xclip -selection clipboard -o"
 
 # alias to TCM Course directory
@@ -492,6 +494,7 @@ connect-remote-SMB-share-guest() {
     read smb_share
     sudo mount -t cifs -o gid=1000,uid=1000,vers=2.0,username=guest,password="" //$smb_ip_address/$smb_share /home/rstrom/SMBMount
 }
+
 
 disconnect-remote-SMB-share() {
 cd ~
