@@ -4,6 +4,29 @@ scriptstarttime=$(date)
 
 # Kali Setup programs to be installed and configuration changes needed
 
+# XFCE Information for possible automation at a later date
+# XFCE Settings Editor = xfce4-settings-editor
+# Monitor changes to XFCE / XFCE panel = xfconf-query -c xfce4-panel -m -v
+# XFconf-query - https://docs.xfce.org/xfce/xfconf/xfconf-query
+# XFCE configuration appears to be stored here - /home/rstrom/.config/xfce4/
+# XFCE panel launchers are stored here - /home/rstrom/.config/xfce4/panel
+# Launcher files are named like this - /home/rstrom/.config/xfce4/panel/launcher-35/16588019193.desktop
+# Launcher files are sinple text files - like the one shown below
+# └─$ cat /home/rstrom/.config/xfce4/panel/launcher-35/16588019193.desktop                             1 ⨯
+# [Desktop Entry]
+# Version=1.0
+# Type=Application
+# Name=MSGViewer
+# Comment=MSGViewer
+# Exec=java -jar /opt/msgviewer
+# Icon=email
+# Path=
+# Terminal=false
+# StartupNotify=false
+# Display all of the .desktop file contents to the console
+# find /home/rstrom/.config/xfce4/panel/ -iname '*.desktop' -exec cat {} \;
+
+
 # Command to run on the new Kali system to download and execute this script
 # wget -O - https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh | bash
 
