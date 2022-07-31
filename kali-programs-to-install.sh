@@ -132,6 +132,9 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/archive/refs/he
 pushd ~/transfers
 unzip Ghostpack-CompiledBinaries-master.zip
 popd
+# Download the linux-exploit-suggester script
+wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O ~/transfers/linux-exploit-suggester.sh
+chmod +x ~/transfers/linux-exploit-suggester.sh
 # Copy sbd.exe  to the ~/transfers directory
 cp /usr/share/windows-resources/sbd/sbd.exe ~/transfers/
 # Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
