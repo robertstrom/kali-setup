@@ -273,6 +273,9 @@ alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complet
 # alias to VMware Shared folder /mnt/hgfs/host
 alias SharedHostFolder="cd /mnt/hgfs/host"
 
+# alias for wordlists from specific directories
+alias fzf-wordlists='find /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share/wfuzz /usr/share/dirb -type f | fzf'
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
