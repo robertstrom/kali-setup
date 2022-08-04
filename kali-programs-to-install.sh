@@ -171,6 +171,9 @@ flameshot html2text csvkit remmina kali-wallpapers-all install hollywood-activat
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla ncftp lolcat fzf \
 ripgrep bat
 
+# Setting up link to bat for the batcat install
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
 # https://github.com/RustScan/RustScan/wiki/Installation-Guide
