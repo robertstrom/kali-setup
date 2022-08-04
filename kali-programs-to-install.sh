@@ -174,6 +174,7 @@ ripgrep bat
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
+
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
 # https://github.com/RustScan/RustScan/wiki/Installation-Guide
@@ -363,6 +364,14 @@ sudo apt install python3.10-venv
 python3 -m venv pwncat-env
 source pwncat-env/bin/activate
 pip install pwncat-cs
+
+# Install Certipy
+git clone https://github.com/ly4k/Certipy
+cd Certipy
+sudo python3 setup.py install
+cd ..
+rm -rf Certipy
+
 
 scriptendtime=$(date)
 echo " "
