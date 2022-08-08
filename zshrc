@@ -438,6 +438,18 @@ start-xfreerdp-connection() {
     xfreerdp /cert-ignore /compression /u:$rdp_user_name /p:$rdp_password /w:1366 /h:768 /v:$rdp_ip_address /smart-sizing +auto-reconnect +clipboard 
 }
 
+status-ssh-service() {
+    sudo systemctl status ssh
+}
+
+start-ssh-service() {
+    sudo systemctl start ssh
+}
+
+stop-ssh-service() {
+    sudo systemctl stop ssh
+}
+
 connect-QNAP-sshfs() {
 sshfs rstrom@qnap: ~/QNAPMyDocs
 }
