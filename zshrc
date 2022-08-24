@@ -262,7 +262,7 @@ alias lt='exa --tree --level=2'                                             # tr
 # requires that xclip be installed
 # Alias to send text from terminal to clipboard
 # This is usually via using cat to output the file and then pipe it to xclip
-alias clip="xclip -selection clipboard -rmlastnl"
+alias copy="xclip -selection clipboard -rmlastnl"
 ## 2022-07-16 - Trying new xclip aliases
 # alias xclip='xclip -selection clipboard -rmlastnl'
 alias paste="xclip -selection clipboard -o"
@@ -274,7 +274,10 @@ alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complet
 alias SharedHostFolder="cd /mnt/hgfs/host"
 
 # alias for wordlists from specific directories
-alias fzf-wordlists='find /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share/wfuzz /usr/share/dirb -type f | fzf'
+# alias fzf-wordlists='find /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share/wfuzz /usr/share/dirb -type f | fzf'
+
+# alias to quickly get to the PowerShell Empire Downloads directory
+alias EmpireDownloads='cd /var/lib/powershell-empire/server/downloads'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -323,7 +326,7 @@ get-geoipinfo-io() {
 
 
 OffSec-openvpn-connection() {
-sudo openvpn ~/Documents/OpenVPN/offsec_pwk_2022-03-05_3.ovpn
+sudo openvpn ~/Documents/OpenVPN/pwk2.ovpn
 }
 
 
@@ -563,3 +566,7 @@ smbencrypt $1
 ### KRB5CCNAME=~/SamiraA.ccache
 ### This:
 ### KRB5CCNAME=/home/rstrom/SamiraA.ccache
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+KRB5CCNAME=/home/rstrom/evan.ccache
