@@ -342,9 +342,6 @@ sudo apt install -y kali-undercover
 
 sudo apt autoremove --purge -y
 
-# Pull down the custom Kali .zshrc file from GitHub
-cp ~/.zshrc ~/.zshrc.sav
-wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
 
 # Configure SAMBA to a minimum SMB version of SMBv2 - for Windows 2016 and above
 sudo bash -c 'echo "" >> /etc/samba/smb.conf'
@@ -384,6 +381,11 @@ cd Certipy
 sudo python3 setup.py install
 cd ..
 rm -rf Certipy
+
+# Pull down the custom Kali .zshrc file from GitHub
+cp ~/.zshrc ~/.zshrc.sav
+wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
+source ~/.zshrc
 
 
 scriptendtime=$(date)
