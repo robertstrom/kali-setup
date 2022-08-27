@@ -101,6 +101,7 @@ mkdir ~/working
 ## Create a ~/transfers directory and a ~/transfers/Sysinternals directory
 mkdir ~/transfers
 mkdir -p  ~/transfers/Sysinternals
+mkdir -p  ~/transfers/Nmap_static
 
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
