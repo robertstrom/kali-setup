@@ -42,10 +42,11 @@ scriptstarttime=$(date)
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
 sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
 
+# 2022-08-27 - Commented out since Code is already installed in the "Large" install
 # Install Visual Studio Code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+# sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+# echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 ## sudo apt update
 ## sudo apt install code -y
 
@@ -167,7 +168,7 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 # Install Geany IDE / Editor
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
-flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver code gridsite-clients shellter sipcalc \
+flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla ncftp lolcat \
 ripgrep bat dcfldd shellter
 
