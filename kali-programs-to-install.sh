@@ -88,6 +88,8 @@ popd
 # Create directory for sshfs mount for QNAP NAS
 mkdir -p ~/QNAPMyDocs
 
+mkdir -p /home/rstrom/.local/bin/
+
 # Create directories for python and PowerShell scripts
 mkdir -p ~/Documents/scripts/python/
 mkdir -p ~/Documents/scripts/PowerShell
