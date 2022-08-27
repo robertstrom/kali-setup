@@ -266,13 +266,14 @@ sudo dpkg --add-architecture i386 && apt-get update && apt-get install wine32
 # How to Setup FTP Server with VSFTPD
 # https://adamtheautomator.com/vsftpd/
 ## sudo apt install vsftpd -y
-sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
-sudo adduser ftp
-sudo mkdir -p /home/ftp/ftp
-sudo chown nobody:nogroup /home/ftp/ftp
-sudo chmod a-w /home/ftp/ftp
-sudo mkdir -p /home/ftp/ftp/files
-sudo chown ftp:ftp /home/ftp/ftp/files
+# 2022-08-27 - Commented out below due to errors waiting for input
+# sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+# sudo adduser ftp
+# sudo mkdir -p /home/ftp/ftp
+# sudo chown nobody:nogroup /home/ftp/ftp
+# sudo chmod a-w /home/ftp/ftp
+# sudo mkdir -p /home/ftp/ftp/files
+# sudo chown ftp:ftp /home/ftp/ftp/files
 
 # Install Pure-FTPd
 # sudo apt update && sudo apt install pure-ftpd -y
@@ -280,18 +281,19 @@ sudo chown ftp:ftp /home/ftp/ftp/files
 # Run this as root, not sudo, or the two commands to create the link to the PureDB will not work
 #!/bin/bash
 
-sudo groupadd ftpgroup
-sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-sudo pure-pw useradd offsec -u ftpuser -d /ftphome
-sudo pure-pw mkdb
+# 2022-08-27 - Commented out below due to errors waiting for input
+# sudo groupadd ftpgroup
+# sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+# sudo pure-pw useradd offsec -u ftpuser -d /ftphome
+# sudo pure-pw mkdb
 # The sudo cd command below does not work if you are not not running as root
 # sudo cd /etc/pure-ftpd/auth/
-cd /etc/pure-ftpd/auth
+# cd /etc/pure-ftpd/auth
 # If you do not get cd'd into the directory above the command to create a link below will not work and then the user logons will not work
-sudo ln -s ../conf/PureDB 60pdb
-sudo mkdir -p /ftphome
-sudo chown -R ftpuser:ftpgroup /ftphome/
-sudo systemctl restart pure-ftpd
+# sudo ln -s ../conf/PureDB 60pdb
+# sudo mkdir -p /ftphome
+# sudo chown -R ftpuser:ftpgroup /ftphome/
+# sudo systemctl restart pure-ftpd
 
 # Install Python HTTP Upload server
 # https://pypi.org/project/uploadserver/
