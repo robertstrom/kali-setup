@@ -233,13 +233,13 @@ go install github.com/tomnomnom/httprobe@latest
 go install -v github.com/OWASP/Amass/v3/...@master
 ## assetfinder
 ## https://github.com/tomnomnom/assetfinder
-go get -u github.com/tomnomnom/assetfinder
+go install github.com/tomnomnom/assetfinder@latest
 ## subjack
 ## https://github.com/haccer/subjack
-go get github.com/haccer/subjack
+go install github.com/haccer/subjack@latest
 ## waybackurls
 ## https://github.com/tomnomnom/waybackurls
-go get github.com/tomnomnom/waybackurls
+go install github.com/tomnomnom/waybackurls@latest
 
 ## Autoenum
 wget https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
