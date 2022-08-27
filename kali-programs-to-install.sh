@@ -262,7 +262,7 @@ pip3 install updog
 pip3 install kerbrute
 
 # Install wine
-sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
+sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32 -y
 
 
 # Install vsftpd
