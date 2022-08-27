@@ -327,7 +327,7 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 # Kali quick install
 # Veil was found to already be installed, but when you run veil the program still does need to be configured - 5/14/2022
 sudo apt install veil -y
-/usr/share/veil/config/setup.sh --force --silent
+sudo /usr/share/veil/config/setup.sh --force --silent
 
 # Install rlwrap for better / more stable reverse shells
 sudo apt install rlwrap
