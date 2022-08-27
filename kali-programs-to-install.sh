@@ -381,7 +381,7 @@ git clone https://github.com/ly4k/Certipy
 cd Certipy
 sudo python3 setup.py install
 cd ..
-rm -rf Certipy
+sudo rm -rf ~/Certipy/
 
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
