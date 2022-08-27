@@ -174,7 +174,7 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla ncftp lolcat \
-ripgrep bat dcfldd shellter
+ripgrep bat dcfldd shellter redis-tools feroxbuster
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -216,6 +216,10 @@ popd
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
+
+# Install AutoRecon
+# https://github.com/Tib3rius/AutoRecon
+python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 # Install PowerShell Empire
 # sudo apt install powershell-empire -y
