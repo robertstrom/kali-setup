@@ -183,6 +183,7 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 git clone --depth 1 https://github.com/junegunn/fzf.git
 cd ~/fzf
 ./install --all
+source ~/.zshrc
 cd ~/
 
 
@@ -210,7 +211,6 @@ unset pythonvar
 cd /usr/bin
 sudo ln -s /opt/nmap-converter/nmap-converter.py nmap-converter 
 sudo chown -R rstrom nmap-converter
-popd
 popd
 
 
