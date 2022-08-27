@@ -72,10 +72,10 @@ mkdir ~/exploits/powershell-empire
 mkdir wordlists
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 sudo cp /usr/share/wordlists/rockyou.txt ~/wordlists/
-cat ~/rockyou.txt | head -n 1000 > ~/wordlists/rockyou-1000.txt
-cat ~/rockyou.txt | head -n 500 > ~/wordlists/rockyou-500.txt
-cat ~/rockyou.txt | head -n 5000 > ~/wordlists/rockyou-5000.txt
-cat ~/rockyou.txt | head -n 10000 > ~/wordlists/rockyou-10000.txt
+cat ~/wordlists/rockyou.txt | head -n 1000 > ~/wordlists/rockyou-1000.txt
+cat ~/wordlists/rockyou.txt | head -n 500 > ~/wordlists/rockyou-500.txt
+cat ~/wordlists/rockyou.txt | head -n 5000 > ~/wordlists/rockyou-5000.txt
+cat ~/wordlists/rockyou.txt | head -n 10000 > ~/wordlists/rockyou-10000.txt
 
 # Create a directory for CherryTree content in the ~/Documents directory
 mkdir ~/Documents/CherryTree
