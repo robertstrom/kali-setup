@@ -350,6 +350,7 @@ sudo bash -c 'echo "min protocol = SMB2" >> /etc/samba/smb.conf'
 # Clone the Invoke-SocksProxy repo
 cd ~/exploits
 git clone https://github.com/tokyoneon/Invoke-SocksProxy.git
+cd ~/
 
 # Download and "install" the penelope.py Advanced Shell Handler
 pushd /opt
