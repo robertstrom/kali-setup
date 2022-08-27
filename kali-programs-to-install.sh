@@ -227,7 +227,7 @@ pip3 install wesng
 ## Install Web Recon programs
 ## httprobe
 ## https://github.com/tomnomnom/httprobe
-go get -u github.com/tomnomnom/httprobe
+go install github.com/tomnomnom/httprobe@latest
 ## Amass
 ## https://github.com/OWASP/Amass
 go install -v github.com/OWASP/Amass/v3/...@master
