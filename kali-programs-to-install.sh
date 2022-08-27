@@ -128,6 +128,7 @@ popd
 # Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
 # Copy mimikatz.exe to the ~/transfers directory
 cp -R /usr/share/windows-resources/mimikatz/ ~/transfers/
+
 # Copy Ghostpack-CompiledBinaries-master.zip to the ~/transfers directory
 wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/archive/refs/heads/master.zip -O ~/transfers/Ghostpack-CompiledBinaries-master.zip
 pushd ~/transfers
@@ -178,8 +179,8 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 # Install fzf via github
 git clone --depth 1 https://github.com/junegunn/fzf.git
 cd ~/fzf
-./install
-cd ~
+./install --all
+cd ~/
 
 
 # Install rustscan
@@ -369,10 +370,10 @@ rm -rf ConPtyShell.zip
 popd
 
 # Install pwncat - https://robertscocca.medium.com/upgrade-your-common-hacking-tools-45ba700d42bb
-sudo apt install python3.10-venv
-python3 -m venv pwncat-env
-source pwncat-env/bin/activate
-pip install pwncat-cs
+# sudo apt install python3.10-venv
+# python3 -m venv pwncat-env
+# source pwncat-env/bin/activate
+# pip install pwncat-cs
 
 # Install Certipy
 git clone https://github.com/ly4k/Certipy
