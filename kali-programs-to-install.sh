@@ -380,6 +380,14 @@ popd
 # source pwncat-env/bin/activate
 # pip install pwncat-cs
 
+# Download and install 7zip 22.01
+pushd ~/Downloads
+wget https://www.7-zip.org/a/7z2201-linux-x64.tar.xz
+tar -xvf 7z2201-linux-x64.tar.xz 7zzs
+tar -xvf 7z2201-linux-x64.tar.xz 7zz
+sudo mv 7zz* /usr/bin/
+popd
+
 # Install Certipy
 git clone https://github.com/ly4k/Certipy
 cd Certipy
