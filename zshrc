@@ -263,6 +263,7 @@ alias lt='exa --tree --level=2'                                             # tr
 # Alias to send text from terminal to clipboard
 # This is usually via using cat to output the file and then pipe it to xclip
 alias copy="xclip -selection clipboard -rmlastnl"
+alias clip="xclip -selection clipboard -rmlastnl"
 ## 2022-07-16 - Trying new xclip aliases
 # alias xclip='xclip -selection clipboard -rmlastnl'
 alias paste="xclip -selection clipboard -o"
