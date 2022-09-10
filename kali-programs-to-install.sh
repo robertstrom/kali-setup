@@ -395,6 +395,9 @@ sudo python3 setup.py install
 cd ..
 sudo rm -rf ~/Certipy/
 
+# Install bloodhound python
+pip3 install bloodhound
+
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
