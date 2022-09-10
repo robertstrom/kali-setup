@@ -279,6 +279,11 @@ alias SharedHostFolder="cd /mnt/hgfs/host"
 # alias to quickly get to the PowerShell Empire Downloads directory
 alias EmpireDownloads='cd /var/lib/powershell-empire/server/downloads'
 
+# alias to restart the DNS resolver
+alias RestartResolvd="sudo systemctl restart systemd-resolved"
+# alias to get information on DNS resolution configuration
+alias GetDNSResolverInfo="sudo resolvectl"
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
