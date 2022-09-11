@@ -531,6 +531,13 @@ outfile=$(echo $infile | sed 's/xml/html/')
 xsltproc $infile -o $outfile
 }
 
+fixWinPeasFile() {
+    infile=$1
+    outfiletmp=$(echo $infile | cut -d . -f 1)
+    outfile=$outfiletmp-utf8.txt
+    iconv -f utf-16le -t utf-8 $infile -o $outfile
+}
+
 convert-NT-DateTime() {
 	echo "Please enter the NT Date String"
 	read ntdate
