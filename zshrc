@@ -332,7 +332,7 @@ get-geoipinfo-io() {
 
 
 OffSec-openvpn-connection() {
-sudo openvpn ~/Documents/OpenVPN/pwk2.ovpn
+sudo openvpn ~/Documents/OpenVPN/offensive-security.ovpn
 }
 
 
