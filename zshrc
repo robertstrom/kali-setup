@@ -573,6 +573,10 @@ ConvertTo-NTLMPasswordHash() {
 smbencrypt $1
 }
 
+Delete-BeEF-Database() {
+    sudo rm -rf /var/lib/beef-xss/beef.db
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
@@ -582,4 +586,4 @@ smbencrypt $1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-KRB5CCNAME=/home/rstrom/evan.ccache
+## KRB5CCNAME=/home/rstrom/Documents/OSCP_Learning_Path_Machines/PublicNetwork/results/10.11.1.120/loot/harry.ccache
