@@ -174,7 +174,7 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 sudo apt install -yy shellcheck libimage-exiftool-perl pv geany terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla ncftp lolcat \
-ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq
+ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
