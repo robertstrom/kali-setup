@@ -213,6 +213,11 @@ sudo ln -s /opt/nmap-converter/nmap-converter.py nmap-converter
 sudo chown -R rstrom nmap-converter
 popd
 
+# Install wwwtree
+sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
+cd /opt/wwwtree
+sudo pip3 install -r requirements.txt
+sudo chmod +x wwwtree.py
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
