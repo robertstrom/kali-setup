@@ -218,6 +218,15 @@ sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
 cd /opt/wwwtree
 sudo pip3 install -r requirements.txt
 sudo chmod +x wwwtree.py
+cd /usr/bin
+sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
+
+# Install Villain
+sudo git clone https://github.com/t3l3machus/Villain /opt/Villain
+cd /opt/Villain
+sudo pip3 install -r requirements.txt
+sudo chmod +x Villain.py
+sudo ln -s /opt/Villain/Villain.py Villain
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
