@@ -412,6 +412,13 @@ sudo rm -rf ~/Certipy/
 # Install bloodhound python
 pip3 install bloodhound
 
+# Install Bat-Potato
+## https://github.com/0x4xel/Bat-Potato
+pushd ~/exploits
+git clone https://github.com/0x4xel/Bat-Potato.git
+chmod +x ./Bat-Potato/Bat-Potato.py
+popd
+
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
