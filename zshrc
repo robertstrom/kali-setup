@@ -286,8 +286,12 @@ alias RestartResolvd="sudo systemctl restart systemd-resolved"
 alias GetDNSResolverInfo="sudo resolvectl"
 
 # Docker Aliases
-alias start-webdav='sudo docker run -p 80:80 -v "${PWD}":/srv/data/share rstrom/webdav'
-alias stop-webdav='sudo docker stop $(sudo docker ps -q --filter ancestor=rstrom/webdav)'
+alias docker-start-webdav='sudo docker run -p 80:80 -v "${PWD}":/srv/data/share rstrom/webdav'
+alias docker-stop-webdav='sudo docker stop $(sudo docker ps -q --filter ancestor=rstrom/webdav)'
+alias docker-start-ubuntu1804='sudo docker run -it ubuntu1804'
+alias docker-start-ubuntu1604='sudo docker run -it ubuntu1604'
+alias docker-start-ubuntu1404='sudo docker run -it ubuntu1404'
+
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
