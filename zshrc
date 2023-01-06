@@ -590,6 +590,12 @@ Delete-BeEF-Database() {
     sudo rm -rf /var/lib/beef-xss/beef.db
 }
 
+Backup-Obsidian() {
+    backupdate=$(date +"%Y-%m-%d_%H-%M-%S")
+    cd ~
+    7zz a Obsidian_backup_$backupdate ./Obsidian
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
