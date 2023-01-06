@@ -221,12 +221,22 @@ sudo chmod +x wwwtree.py
 cd /usr/bin
 sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
 
+# Install Reverse Shell Generator
+# https://github.com/bing0o/Reverse_Shell_Generator
+sudo curl https://raw.githubusercontent.com/bing0o/Reverse_Shell_Generator/main/payload.sh --create-dirs -o /opt/reverse-shell-generator/payload.sh
+sudo chown -R rstrom:rstrom /opt/reverse-shell-generator
+chmod +x /opt/reverse-shell-generator/payload.sh
+cd /usr/bin
+sudo ln -s /opt/reverse-shell-generator/payload.sh reverse-shell-generator
+cd ~
+
 # Install Villain
 sudo git clone https://github.com/t3l3machus/Villain /opt/Villain
 cd /opt/Villain
 sudo pip3 install -r requirements.txt
 sudo chmod +x Villain.py
 sudo ln -s /opt/Villain/Villain.py Villain
+cd ~
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
