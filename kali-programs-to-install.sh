@@ -63,7 +63,7 @@ sudo apt install exa -y
 ## Add exa aliases to ls to the zsh profile
 ## This will be done when the .zshrc profile is downloaded from GitHub at the end of this configuration
 
-## Create directory for storing downloaded exploits, etc.
+## Create directory for storing downloadeds, etc.
 
 cd ~
 mkdir exploits
@@ -140,6 +140,17 @@ popd
 # Download the linux-exploit-suggester script
 wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O ~/transfers/linux-exploit-suggester.sh
 chmod +x ~/transfers/linux-exploit-suggester.sh
+
+# Download pspy
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32s
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64s
+chmod +x ~/transfers/pspy32
+chmod +x ~/transfers/pspy32s
+chmod +x ~/transfers/pspy64
+chmod +x ~/transfers/pspy64s
+
 # Copy sbd.exe  to the ~/transfers directory
 cp /usr/share/windows-resources/sbd/sbd.exe ~/transfers/
 # Copy /usr/share/windows-resources/binaries/nc.exe to the ~/transfers directory
