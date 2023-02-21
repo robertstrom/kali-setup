@@ -596,6 +596,10 @@ Backup-Obsidian() {
     7zz a Obsidian_backup_$backupdate ./Obsidian
 }
 
+expandshortURL() {
+    curl --insecure -sLI "$1" | grep Location
+}
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
