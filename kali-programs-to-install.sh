@@ -445,6 +445,11 @@ cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
 source ~/.zshrc
 
+# Download and extract hashcat kwprocessor Advanced keyboard-walk generator
+
+wget https://github.com/hashcat/kwprocessor/releases/download/v1.00/kwprocessor-1.00.7z
+7zz x kwprocessor-1.00.7z
+rm -rf kwprocessor-1.00.7z
 
 scriptendtime=$(date)
 echo " "
