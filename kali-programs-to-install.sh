@@ -451,6 +451,12 @@ wget https://github.com/hashcat/kwprocessor/releases/download/v1.00/kwprocessor-
 7zz x kwprocessor-1.00.7z
 rm -rf kwprocessor-1.00.7z
 
+# Download and extract the hashcat utils
+
+wget https://github.com/hashcat/hashcat-utils/releases/download/v1.9/hashcat-utils-1.9.7z
+7zz x hashcat-utils-1.9.7z
+rm -rf hashcat-utils-1.9.7z
+
 scriptendtime=$(date)
 echo " "
 echo "The script started at $scriptstarttime"
