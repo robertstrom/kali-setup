@@ -454,7 +454,7 @@ rm -rf kwprocessor-1.00.7z
 # Download and extract the hashcat utils
 
 wget https://github.com/hashcat/hashcat-utils/releases/download/v1.9/hashcat-utils-1.9.7z
-7zz x hashcat-utils-1.9.7z
+7zz e hashcat-utils-1.9.7z -ohashcatutils hashcat-utils-1.9/bin/*
 rm -rf hashcat-utils-1.9.7z
 
 scriptendtime=$(date)
