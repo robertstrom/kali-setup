@@ -400,6 +400,15 @@ pushd /usr/bin
 sudo ln -s /opt/penelope.py penelope-reverse-shell
 popd
 
+# Download and "install" namemash.py
+pushd /opt
+sudo wget https://gist.githubusercontent.com/superkojiman/11076951/raw/74f3de7740acb197ecfa8340d07d3926a95e5d46/namemash.py
+sudo chmod +x namemash.py
+popd
+pushd /usr/bin
+sudo ln -s /opt/namemash.py namemash
+popd
+
 # Download the ConPtyShell for Windows and place it in the ~/transfers directory
 pushd ~/transfers
 wget https://github.com/antonioCoco/ConPtyShell/releases/download/1.5/ConPtyShell.zip
