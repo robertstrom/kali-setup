@@ -41,6 +41,23 @@ scriptstarttime=$(date)
 # Add this line to the /etc/fstab file
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
 sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
+## RStrom - 5/28/2023 - Added all group memberships below
+sudo adduser rstrom sudo
+### For VirtualBox
+## sudo adduser rstrom vboxsf
+sudo adduser rstrom kaboxer
+sudo adduser rstrom wireshark
+sudo adduser rstrom adm
+sudo adduser rstrom cdrom
+sudo adduser rstrom floppy
+sudo adduser rstrom audio
+sudo adduser rstrom dip
+sudo adduser rstrom video
+sudo adduser rstrom plugdev
+sudo adduser rstrom netdev
+sudo adduser rstrom bluetooth
+sudo adduser rstrom scanner
+
 
 # 2022-08-27 - Commented out since Code is already installed in the "Large" install
 # Install Visual Studio Code
