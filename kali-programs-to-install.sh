@@ -450,11 +450,14 @@ sudo mv 7zz* /usr/bin/
 popd
 
 # Install Certipy
-git clone https://github.com/ly4k/Certipy
-cd Certipy
-sudo python3 setup.py install
-cd ..
-sudo rm -rf ~/Certipy/
+# git clone https://github.com/ly4k/Certipy
+# cd Certipy
+# sudo python3 setup.py install
+# cd ..
+# sudo rm -rf ~/Certipy/
+# 6/4/2023 - RStrom
+# the README says to install using pip
+pip3 install certipy-ad
 
 # Install bloodhound python
 pip3 install bloodhound
