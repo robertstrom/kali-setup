@@ -204,6 +204,9 @@ flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-s
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla ncftp lolcat \
 ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate
 
+# i3 program installs
+feh
+
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
