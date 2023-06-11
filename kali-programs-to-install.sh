@@ -205,7 +205,8 @@ xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkh
 ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate
 
 # i3 program installs
-feh
+## sudo apt install kali-desktop-i3
+## sudo apt install feh
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
