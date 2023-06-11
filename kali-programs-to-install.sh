@@ -207,6 +207,10 @@ ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc 
 # i3 program installs
 ## sudo apt install kali-desktop-i3
 ## sudo apt install feh
+## Need to add these line to the i3 config file for copyq
+## for_window [instance="^copyq$" class="^copyq$"] border pixel 1, floating enable
+## exec copyq
+
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
