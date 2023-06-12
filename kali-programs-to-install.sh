@@ -210,6 +210,12 @@ ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc 
 ## Need to add these line to the i3 config file for copyq
 ## for_window [instance="^copyq$" class="^copyq$"] border pixel 1, floating enable
 ## exec copyq
+## Font Awesome font cheatsheet
+## https://fontawesome.com/v5/cheatsheet/free/solid
+## Font Aesome version 5 fonts - has TTF fonts
+## https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.6/fontawesome-free-5.0.6.zip
+## link to the - Yosemite San Francisco Font - https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+
 
 
 # Setting up link to bat for the batcat install
