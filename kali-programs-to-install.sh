@@ -274,7 +274,7 @@ cd ~
 
 # Install MsgViewer
 # https://github.com/lolo101/MsgViewer/releases/download/msgviewer-1.8.7/msgviewer.jar
-sudo curl https://github.com/lolo101/MsgViewer/releases/download/msgviewer-1.8.7/msgviewer.jar -o /opt/msgviewer.jar
+sudo wget https://github.com/lolo101/MsgViewer/releases/download/msgviewer-1.8.7/msgviewer.jar -O /opt/msgviewer.jar
 sudo chmod +x /opt/msgviewer.jar
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/MsgViewer.desktop -O /home/rstrom/.config/xfce4/panel/MsgViewer.desktop
 
