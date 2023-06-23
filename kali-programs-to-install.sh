@@ -12,7 +12,12 @@ scriptstarttime=$(date)
 # XFCE panel launchers are stored here - /home/rstrom/.config/xfce4/panel
 # Launcher files are named like this - /home/rstrom/.config/xfce4/panel/launcher-35/16588019193.desktop
 # Launcher files are sinple text files - like the one shown below
-# └─$ cat /home/rstrom/.config/xfce4/panel/launcher-35/16588019193.desktop                             1 ⨯
+# └─$ cat /home/rstrom/.config/xfce4/panel/launcher-35/16588019193.desktop
+##
+# User specific location for .desktop launcher files is ~/.local/share/applications
+# the directory does not exist by default so it is best to create it using the command
+# mkdir -p ~/.local/share/applications
+##
 # [Desktop Entry]
 # Version=1.0
 # Type=Application
