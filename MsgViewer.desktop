@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MSGViewer
+Comment=MSGViewer
+Exec=java -jar /opt/msgviewer.jar
+Icon=email
+Path=
+Terminal=false
+StartupNotify=false
