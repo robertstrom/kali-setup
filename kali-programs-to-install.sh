@@ -272,6 +272,11 @@ cd /usr/bin
 sudo ln -s /opt/reverse-shell-generator/payload.sh reverse-shell-generator
 cd ~
 
+# Install MsgViewer
+# https://github.com/lolo101/MsgViewer/releases/download/msgviewer-1.8.7/msgviewer.jar
+sudo curl https://github.com/lolo101/MsgViewer/releases/download/msgviewer-1.8.7/msgviewer.jar -o /opt/msgviewer.jar
+
+
 # Install Villain
 sudo git clone https://github.com/t3l3machus/Villain /opt/Villain
 cd /opt/Villain
