@@ -562,6 +562,22 @@ convert-NT-DateTime() {
 	date -d@$epoch
 }
 
+convert-Unix-EpochTime() {
+        echo "Please enter the Unix Epoch Time string (seconds, not milliseconds)"
+        read unixepoch
+        echo ""
+        echo "The Unix Epoch timestamp conversion translates to this date and time:"
+        date -d@$unixepoch
+}
+
+convert-Unix-EpochTimeMiliseconds() {
+        echo "Please enter the Unix Epoch Time string (milliseconds)"
+        read unixepoch
+        echo ""
+        echo "The Unix Epoch timestamp conversion translates to this date and time:"
+        date -d @$(  echo "($unixepoch + 500) / 1000" | bc)
+}
+
 delete-hashcat-potfile() {
 rm  /home/rstrom/.local/share/hashcat/hashcat.potfile
 }
