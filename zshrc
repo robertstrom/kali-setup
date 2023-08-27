@@ -538,8 +538,23 @@ cd ~
 sudo umount /home/rstrom/SMBMount
 }
 
+## Old Nmap XML to HTML function
+# Commented out on 8/27/2023
+## nmap-xml-to-html() {
+## infile=$1
+## outfile=$(echo $infile | sed 's/xml/html/')
+## xsltproc $infile -o $outfile
+## }
+
+# Updated Nmap XML to HTML function
+# Added on 8/27/2023
+# This function incorporates a conversion of the path to the xsl template if the scan was performed on a Windows system
 nmap-xml-to-html() {
 infile=$1
+cp $infile $infile.sav
+## This conversion only needs to happen if the Nmap scan was done on a Windows system
+## If the text below does not exist in the Nmap XML file then there should be no change made to the XML file and the conversion should still work
+sed -i 's/C\:\/Program Files (x86)\/Nmap\/nmap\.xsl/usr\/share\/nmap\/nmap\.xsl/' $infile
 outfile=$(echo $infile | sed 's/xml/html/')
 xsltproc $infile -o $outfile
 }
