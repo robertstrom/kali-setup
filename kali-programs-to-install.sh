@@ -484,7 +484,9 @@ popd
 # sudo rm -rf ~/Certipy/
 # 6/4/2023 - RStrom
 # the README says to install using pip
-pip3 install certipy-ad
+## pip3 install certipy-ad
+## 2/10/2024 - RStrom - ^^^ commenting out the line above since the new way to install certipy is using the command below
+sudo apt install python3-certipy
 
 # Install bloodhound python
 pip3 install bloodhound
