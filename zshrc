@@ -627,8 +627,11 @@ Backup-Obsidian() {
     7zz a Obsidian_backup_$backupdate ./Obsidian
 }
 
+# Updated the function based on this SANS post - 2024-04-09 - RStrom
+# Taking Apart URL Shorteners
+# https://isc.sans.edu/diary/Taking+Apart+URL+Shorteners/28980
 expandshortURL() {
-    curl --insecure -sLI "$1" | grep Location
+curl -k -v -I $1 2>&1 | grep -i "< location" | cut -d " " -f 3
 }
 
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
