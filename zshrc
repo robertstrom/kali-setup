@@ -267,6 +267,9 @@ alias clip="xclip -selection clipboard -rmlastnl"
 ## 2022-07-16 - Trying new xclip aliases
 # alias xclip='xclip -selection clipboard -rmlastnl'
 alias paste="xclip -selection clipboard -o"
+## 2024-05-28 - adding pbcopy and pbpaste aliases
+alias pbcopy='xsel --input --clipboard'
+alias pbpaste='xsel --output --clipboard'
 
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
