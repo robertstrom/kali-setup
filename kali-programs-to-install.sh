@@ -81,7 +81,7 @@ sudo adduser rstrom scanner
 # cd  /
 
 ## Install exa
-sudo apt install exa -y
+sudo apt install eza -y
 ## Add exa aliases to ls to the zsh profile
 ## This will be done when the .zshrc profile is downloaded from GitHub at the end of this configuration
 
@@ -100,12 +100,12 @@ cat ~/wordlists/rockyou.txt | head -n 5000 > ~/wordlists/rockyou-5000.txt
 cat ~/wordlists/rockyou.txt | head -n 10000 > ~/wordlists/rockyou-10000.txt
 
 # Create a directory for CherryTree content in the ~/Documents directory
-mkdir ~/Documents/CherryTree
+# mkdir ~/Documents/CherryTree
 # Download some CherryTree templates
-pushd  ~/Documents/CherryTree
-wget https://github.com/unmeg/hax/raw/master/BOX-SKELETON.ctb
-wget https://411hall.github.io/assets/files/CTF_template.ctb
-popd
+# pushd  ~/Documents/CherryTree
+# wget https://github.com/unmeg/hax/raw/master/BOX-SKELETON.ctb
+# wget https://411hall.github.io/assets/files/CTF_template.ctb
+# popd
 
 # Create directory for sshfs mount for QNAP NAS
 mkdir -p ~/QNAPMyDocs
