@@ -203,6 +203,8 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
 ## Install progress viewer
 # Install Geany IDE / Editor
+## 2024-09-23  - Added ripgrep pandoc poppler-utils ffmpeg to support ripgrep-al - https://github.com/phiresky/ripgrep-all?tab=readme-ov-file
+## Also see this ripgrep-all blog  https://phiresky.github.io/blog/2019/rga--ripgrep-for-zip-targz-docx-odt-epub-jpg/
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
@@ -221,7 +223,14 @@ ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc 
 ## https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.6/fontawesome-free-5.0.6.zip
 ## link to the - Yosemite San Francisco Font - https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 
+## pull down the ripgrep-all binary and move the executables to the /usr/bin directory
 
+pushd ~/Downloads
+wget https://github.com/phiresky/ripgrep-all/releases/download/v0.10.6/ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
+tar -xzvf ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
+cd ripgrep_all-v0.10.6-x86_64-unknown-linux-musl
+sudo mv rga* /usr/bin
+popd
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
