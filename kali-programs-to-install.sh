@@ -228,7 +228,7 @@ ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc 
 pushd ~/Downloads
 wget https://github.com/phiresky/ripgrep-all/releases/download/v0.10.6/ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
 tar -xzvf ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
-sudo mv ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl/rga*
+sudo mv ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl/rga* /usr/bin
 rm -rf ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl
 rm -rf ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl*.gz*
 popd
