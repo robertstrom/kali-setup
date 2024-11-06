@@ -80,6 +80,12 @@ sudo adduser rstrom scanner
 # sudo ./pimpmykali.sh
 # cd  /
 
+# 2024-11-06
+# create a ~/.screenrc file so that it is possible to scroll when using screen
+touch ~/.screenrc
+echo "# Enable mouse scrolling and scroll bar history scrolling" > ~/.screenrc
+echo "termcapinfo xterm* ti@:te@" >> ~/.screenrc
+
 ## Install exa
 sudo apt install eza -y
 ## Add exa aliases to ls to the zsh profile
