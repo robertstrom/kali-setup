@@ -205,6 +205,12 @@ wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_6
 wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/master/lse.sh -O ~/exploits/lse.sh && chmod +x ~/exploits/lse.sh
 
 
+## 2024-11-06 - Install NoMachine
+pushd ~/Downloads
+wget https://www.nomachine.com/free/linux/64/deb -O nomachine.deb
+sudo dpkg -i nomachine.deb
+popd
+
 ## Install ShellCheck - A shell script static analysis tool
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
 ## Install progress viewer
@@ -509,7 +515,8 @@ popd
 ## It appears that certipy-ad is pre-installed and has taken the place of the certipy program
 
 # Install bloodhound python
-pip3 install bloodhound
+# 2024-11-06 - this is deprecated now by Bloodhound CE
+## pip3 install bloodhound
 
 # Install Bat-Potato
 ## https://github.com/0x4xel/Bat-Potato
