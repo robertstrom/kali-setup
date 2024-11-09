@@ -218,12 +218,19 @@ popd
 ## 2024-09-23  - Added ripgrep pandoc poppler-utils ffmpeg to support ripgrep-al - https://github.com/phiresky/ripgrep-all?tab=readme-ov-file
 ## Also see this ripgrep-all blog  https://phiresky.github.io/blog/2019/rga--ripgrep-for-zip-targz-docx-odt-epub-jpg/
 ## 2024-10-28 - added zbar-tools to the list of programs to install. zbar-tools has the zbarimg command to analyze barcodes at the command line. Including QR codes
+## 2024-11-09 - Added gnupg2 because it is a dependency for 1password
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla lolcat \
 ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel ripgrep pandoc poppler-utils ffmpeg \
-zbar-tools
+zbar-tools gnupg2
+
+## 2024-11-09 - Added the install of 1password
+pushd ~/Downloads
+wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
+sudo dpkg -i 1password-latest.deb
+popd
 
 # i3 program installs
 ## sudo apt install kali-desktop-i3
