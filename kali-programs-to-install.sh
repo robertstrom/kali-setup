@@ -219,12 +219,13 @@ popd
 ## Also see this ripgrep-all blog  https://phiresky.github.io/blog/2019/rga--ripgrep-for-zip-targz-docx-odt-epub-jpg/
 ## 2024-10-28 - added zbar-tools to the list of programs to install. zbar-tools has the zbarimg command to analyze barcodes at the command line. Including QR codes
 ## 2024-11-09 - Added gnupg2 because it is a dependency for 1password
+## 2024-11-09 - Added the install of vivaldi
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla lolcat \
 ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel ripgrep pandoc poppler-utils ffmpeg \
-zbar-tools gnupg2
+zbar-tools gnupg2 vivaldi-stable
 
 ## 2024-11-09 - Added the install of 1password
 pushd ~/Downloads
