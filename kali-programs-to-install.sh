@@ -225,7 +225,7 @@ sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla lolcat \
 ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel ripgrep pandoc poppler-utils ffmpeg \
-zbar-tools gnupg2 vivaldi-stable
+zbar-tools gnupg2 vivaldi-stable dc3dd
 
 ## 2024-11-09 - Added the install of 1password
 pushd ~/Downloads
