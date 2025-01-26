@@ -4,6 +4,8 @@ scriptstarttime=$(date)
 
 # Kali Setup programs to be installed and configuration changes needed
 
+### 2025-01-26 - Major modifications to clean things up ###
+
 # XFCE Information for possible automation at a later date
 # XFCE Settings Editor = xfce4-settings-editor
 # Monitor changes to XFCE / XFCE panel = xfconf-query -c xfce4-panel -m -v
@@ -35,6 +37,7 @@ scriptstarttime=$(date)
 # Command to run on the new Kali system to download and execute this script
 # wget -O - https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh | bash
 
+
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
 ## so that it is fully functional with all expected software installed.
 
@@ -43,34 +46,32 @@ scriptstarttime=$(date)
 # https://kb.vmware.com/s/article/60262
 # https://docs.vmware.com/en/VMware-Tools/11.2/rn/VMware-Tools-1125-Release-Notes.html#vmware-tools-issues-in-vmware-workstation-or-fusion-known
 # Configure shared folder in VMware to point to the folder on the VMware host and leave shared folders enable
+
 # Add this line to the /etc/fstab file
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
 sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
+
+
 ## RStrom - 5/28/2023 - Added all group memberships below
 sudo adduser rstrom sudo
-### For VirtualBox
+
+
+### For VirtualBox ###
 ## sudo adduser rstrom vboxsf
-sudo adduser rstrom kaboxer
-sudo adduser rstrom wireshark
-sudo adduser rstrom adm
-sudo adduser rstrom cdrom
-sudo adduser rstrom floppy
-sudo adduser rstrom audio
-sudo adduser rstrom dip
-sudo adduser rstrom video
-sudo adduser rstrom plugdev
-sudo adduser rstrom netdev
-sudo adduser rstrom bluetooth
-sudo adduser rstrom scanner
+## sudo adduser rstrom kaboxer
+## sudo adduser rstrom wireshark
+## sudo adduser rstrom adm
+## sudo adduser rstrom cdrom
+## sudo adduser rstrom floppy
+## sudo adduser rstrom audio
+## sudo adduser rstrom dip
+## sudo adduser rstrom video
+## sudo adduser rstrom plugdev
+## sudo adduser rstrom netdev
+## sudo adduser rstrom bluetooth
+## sudo adduser rstrom scanner
 
-
-# 2022-08-27 - Commented out since Code is already installed in the "Large" install
-# Install Visual Studio Code
-# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-# sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-# echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-## sudo apt update
-## sudo apt install code -y
+### End for VirtualBox
 
 
 ## pimpmykali - https://github.com/Dewalt-arch/pimpmykali
@@ -80,18 +81,14 @@ sudo adduser rstrom scanner
 # sudo ./pimpmykali.sh
 # cd  /
 
+
 # 2024-11-06
 # create a ~/.screenrc file so that it is possible to scroll when using screen
 touch ~/.screenrc
 echo "# Enable mouse scrolling and scroll bar history scrolling" > ~/.screenrc
 echo "termcapinfo xterm* ti@:te@" >> ~/.screenrc
 
-## Install exa
-sudo apt install eza -y
-## Add exa aliases to ls to the zsh profile
-## This will be done when the .zshrc profile is downloaded from GitHub at the end of this configuration
-
-## Create directory for storing downloadeds, etc.
+## Create directory for storing downloads, etc.
 
 cd ~
 mkdir exploits
@@ -105,13 +102,6 @@ cat ~/wordlists/rockyou.txt | head -n 500 > ~/wordlists/rockyou-500.txt
 cat ~/wordlists/rockyou.txt | head -n 5000 > ~/wordlists/rockyou-5000.txt
 cat ~/wordlists/rockyou.txt | head -n 10000 > ~/wordlists/rockyou-10000.txt
 
-# Create a directory for CherryTree content in the ~/Documents directory
-# mkdir ~/Documents/CherryTree
-# Download some CherryTree templates
-# pushd  ~/Documents/CherryTree
-# wget https://github.com/unmeg/hax/raw/master/BOX-SKELETON.ctb
-# wget https://411hall.github.io/assets/files/CTF_template.ctb
-# popd
 
 # Create directory for sshfs mount for QNAP NAS
 mkdir -p ~/QNAPMyDocs
@@ -140,7 +130,7 @@ sudo usermod -a -G fuse rstrom
 sudo apt update && sudo apt upgrade -y
 
 # Install sshfs
-sudo apt install sshfs -y
+sudo apt install -y sshfs
 
 export qnap='192.168.0.99'
 
@@ -165,6 +155,8 @@ wget https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/archive/refs/he
 pushd ~/transfers
 unzip Ghostpack-CompiledBinaries-master.zip
 popd
+
+
 # Download the linux-exploit-suggester script
 wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O ~/transfers/linux-exploit-suggester.sh
 chmod +x ~/transfers/linux-exploit-suggester.sh
@@ -224,8 +216,9 @@ popd
 sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
 xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla lolcat \
-ripgrep bat dcfldd shellter redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel ripgrep pandoc poppler-utils ffmpeg \
-zbar-tools gnupg2 vivaldi-stable dc3dd
+ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
+zbar-tools gnupg2 vivaldi-stable dc3dd powershell-empire powershell-empire rlwrap partitionmanager kali-undercover fastfetch hyfetch \
+lolcat 7zip-standalone eza villain
 
 ## 2024-11-09 - Added the install of 1password
 pushd ~/Downloads
@@ -241,9 +234,10 @@ popd
 ## exec copyq
 ## Font Awesome font cheatsheet
 ## https://fontawesome.com/v5/cheatsheet/free/solid
-## Font Aesome version 5 fonts - has TTF fonts
+## Font Awesome version 5 fonts - has TTF fonts
 ## https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.6/fontawesome-free-5.0.6.zip
 ## link to the - Yosemite San Francisco Font - https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+
 
 ## pull down the ripgrep-all binary and move the executables to the /usr/bin directory
 
@@ -264,7 +258,6 @@ cd ~/fzf
 ./install --all
 source ~/.zshrc
 cd ~/
-
 
 # Install rustscan
 # https://overide.medium.com/rustscan-fcbdb93e17c9
@@ -317,14 +310,6 @@ mkdir -p ~/.local/share/applications
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/MsgViewer.desktop -O ~/.local/share/applications/MsgViewer.desktop
 
 
-# Install Villain
-sudo git clone https://github.com/t3l3machus/Villain /opt/Villain
-cd /opt/Villain
-sudo pip3 install -r requirements.txt
-sudo chmod +x Villain.py
-sudo ln -s /opt/Villain/Villain.py Villain
-cd ~
-
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
 pip3 install wesng
 
@@ -332,8 +317,6 @@ pip3 install wesng
 # https://github.com/Tib3rius/AutoRecon
 python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
-# Install PowerShell Empire
-# sudo apt install powershell-empire -y
 
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
 # sudo apt-get install software-properties-common -y
@@ -367,10 +350,6 @@ pip3 install updog
 ## The mkpsrevshell.py script from - https://gist.github.com/tothi/ab288fb523a4b32b51a53e542d40fe58
 ## This script creates an encoded PowerShell reverse shell
 ## I have created a copy of this script renaming it to make-powershell-base64-reverse-shell.py
-
-# evil-winrm
-## This is now install by default in Kali 2022.2
-## sudo apt install evil-winrm -y
 
 
 # Install kerbrute
@@ -444,20 +423,6 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 sudo apt install veil -y
 sudo /usr/share/veil/config/setup.sh --force --silent
 
-# Install rlwrap for better / more stable reverse shells
-sudo apt install rlwrap
-
-# Install KDE partition manager
-sudo apt install -y partitionmanager
-
-sudo apt install -y neofetch lolcat
-
-# Install Kali Undercover - make Kali look like Windows 10
-sudo apt install -y kali-undercover
-
-sudo apt autoremove --purge -y
-
-
 # Configure SAMBA to a minimum SMB version of SMBv2 - for Windows 2016 and above
 sudo bash -c 'echo "" >> /etc/samba/smb.conf'
 sudo bash -c 'echo "min protocol = SMB2" >> /etc/samba/smb.conf'
@@ -500,31 +465,6 @@ popd
 # source pwncat-env/bin/activate
 # pip install pwncat-cs
 
-# Download and install 7zip 22.01
-pushd ~/Downloads
-wget https://www.7-zip.org/a/7z2201-linux-x64.tar.xz
-tar -xvf 7z2201-linux-x64.tar.xz 7zzs
-tar -xvf 7z2201-linux-x64.tar.xz 7zz
-sudo mv 7zz* /usr/bin/
-popd
-
-# Install Certipy
-# git clone https://github.com/ly4k/Certipy
-# cd Certipy
-# sudo python3 setup.py install
-# cd ..
-# sudo rm -rf ~/Certipy/
-# 6/4/2023 - RStrom
-# the README says to install using pip
-## pip3 install certipy-ad
-## 2/10/2024 - RStrom - ^^^ commenting out the line above since the new way to install certipy is using the command below
-## sudo apt install python3-certipy
-## ^^^ 2/10/2024 - RStrom - this does not appear to be necessary anymore (it doesn't want to install anyway due to a conflict with the certipy-ad).
-## It appears that certipy-ad is pre-installed and has taken the place of the certipy program
-
-# Install bloodhound python
-# 2024-11-06 - this is deprecated now by Bloodhound CE
-## pip3 install bloodhound
 
 # Install Bat-Potato
 ## https://github.com/0x4xel/Bat-Potato
@@ -549,6 +489,10 @@ rm -rf kwprocessor-1.00.7z
 wget https://github.com/hashcat/hashcat-utils/releases/download/v1.9/hashcat-utils-1.9.7z
 7zz e hashcat-utils-1.9.7z -ohashcatutils hashcat-utils-1.9/bin/*
 rm -rf hashcat-utils-1.9.7z
+
+
+sudo apt autoremove --purge -y
+
 
 scriptendtime=$(date)
 echo " "
