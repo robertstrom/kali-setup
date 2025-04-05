@@ -646,4 +646,6 @@ curl -k -v -I $1 2>&1 | grep -i "< location" | cut -d " " -f 3
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+complete -W "$(grep "Host" ~/.ssh/config | grep -vE "HostName|Hostname|no" | awk '{ print $2 }' | sed -E "/\*/d")" ssh
+
 ## KRB5CCNAME=/home/rstrom/Documents/OSCP_Learning_Path_Machines/PublicNetwork/results/10.11.1.120/loot/harry.ccache
