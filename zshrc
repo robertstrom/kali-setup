@@ -251,14 +251,14 @@ fi
 
 alias cls='clear'
 
-alias ls='exa'                                                              # ls
-alias l='exa -lbF'                                                          # list, size, type, git
-alias ll='exa -lbGF'                                                        # long list
-alias llm='exa -lbGF --sort=modified'                                       # long list, modified date sort
-alias la='exa -lbhHigUmuSa --time-style=long-iso --color-scale'             # all list
-alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --color-scale'            # all + extended list
-alias lS='exa -1'			                                    # one column, just names
-alias lt='exa --tree --level=2'                                             # tree
+alias ls='eza'                                                              # ls
+alias l='eza -lbF'                                                          # list, size, type, git
+alias ll='eza -lbGF'                                                        # long list
+alias llm='eza -lbGF --sort=modified'                                       # long list, modified date sort
+alias la='eza -lbhHigUmuSa --time-style=long-iso --color-scale'             # all list
+alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --color-scale'            # all + extended list
+alias lS='eza -1'			                                    # one column, just names
+alias lt='eza --tree --level=2'                                             # tree
 # requires that xclip be installed
 # Alias to send text from terminal to clipboard
 # This is usually via using cat to output the file and then pipe it to xclip
