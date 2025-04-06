@@ -630,6 +630,13 @@ Backup-Obsidian() {
     7zz a Obsidian_backup_$backupdate ./Obsidian
 }
 
+## Added for Raspberry Pi installs
+
+get-temperature() {
+sudo vcgencmd measure_temp
+}
+
+
 # Updated the function based on this SANS post - 2024-04-09 - RStrom
 # Taking Apart URL Shorteners
 # https://isc.sans.edu/diary/Taking+Apart+URL+Shorteners/28980
