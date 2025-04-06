@@ -126,7 +126,7 @@ mkdir -p  ~/transfers/Nmap_static
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
 
-sudo DEBIAN_FRONTEND=noninteractive apt update && sudo apt upgrade -yq
+sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -yq
 
 # Install sshfs
 sudo apt install -y sshfs
