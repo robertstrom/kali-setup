@@ -126,7 +126,7 @@ mkdir -p  ~/transfers/Nmap_static
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
 
-sudo apt update && sudo apt upgrade -y
+sudo DEBIAN_FRONTEND=noninteractive apt update && sudo apt upgrade -yq
 
 # Install sshfs
 sudo apt install -y sshfs
@@ -216,7 +216,7 @@ arch=$(uname -m)
 
 case "$arch" in
   x86_64|amd64)
-    sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
+    sudo DEBIAN_FRONTEND=noninteractive apt install -yq shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
     flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
     xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
     ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
@@ -232,7 +232,7 @@ case "$arch" in
   aarch64)
     echo "Architecture: AArch64 (64-bit ARM)"
     mkdir ~/Downloads
-    sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
+    sudo DEBIAN_FRONTEND=noninteractive apt install -yq shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
     flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients sipcalc \
     xsltproc rinetd httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
     ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
