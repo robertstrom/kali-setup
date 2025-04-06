@@ -221,7 +221,7 @@ case "$arch" in
     xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
     ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
     zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
-    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
+    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy xrdp
     ;;
   i?86)
     echo "Architecture: x86 (32-bit)"
@@ -237,7 +237,7 @@ case "$arch" in
     xsltproc rinetd httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
     ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
     zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
-    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
+    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy xrdp
     ;;
   ppc64le)
     echo "Architecture: PowerPC 64-bit Little Endian"
@@ -251,6 +251,9 @@ esac
 
 # Enable the docker service
 sudo systemctl enable docker --now
+
+## Enable the xrdp service
+sudo systemctl enable xrdp --now
 
 # Add the currenbt user to the docker group so that you don't need to use sudo to run docker commands
 sudo usermod -aG docker $USER
