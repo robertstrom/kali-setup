@@ -721,4 +721,5 @@ echo "The installation and configuration of this new Kali build has completed"
 echo "Happy Hacking\!"
 # source ~/.zshrc
 read -rsp $'Press any key to reboot, or wait 10 seconds and the system will reboot automatically ...\n' -n 1 -t 10;
+
 sudo reboot
