@@ -212,36 +212,16 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 ## 2024-11-09 - Added gnupg2 because it is a dependency for 1password
 ## 2024-11-09 - Added the install of vivaldi
 
-sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
-flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
-xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
-ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
-zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
-code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
-
-# Enable the docker service
-sudo systemctl enable docker --now
-
-# Add the currenbt user to the docker group so that you don't need to use sudo to run docker commands
-sudo usermod -aG docker $USER
-
-# Install docker compose
 arch=$(uname -m)
-
-## One way of getting the current version information from GitHub
-## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[].browser_download_url" | grep -v '\.json\|\.sha256'
-
-## An alternate way of getting the current version information from GitHub
-## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | grep browser_download | egrep linux-aarch64\"$ | awk -F"\""  '{ print $4 }'
-
-dockercomposelatest=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/docker/compose/releases/latest)
-DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-mkdir -p $DOCKER_CONFIG/cli-plugins
 
 case "$arch" in
   x86_64|amd64)
-    echo "Architecture: x86-64 (64-bit)"
-    curl -SL $dockercomposelatest/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+    sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
+    flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
+    xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
+    ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
+    zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
+    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
     ;;
   i?86)
     echo "Architecture: x86 (32-bit)"
@@ -251,7 +231,57 @@ case "$arch" in
     ;;
   aarch64)
     echo "Architecture: AArch64 (64-bit ARM)"
-    curl -SL $dockercomposelatest/docker-compose-linux-aarch64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+    mkdir ~/Downloads
+    sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
+    flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients sipcalc \
+    xsltproc rinetd httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
+    ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
+    zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
+    code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
+    ;;
+  ppc64le)
+    echo "Architecture: PowerPC 64-bit Little Endian"
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+
+
+# Enable the docker service
+sudo systemctl enable docker --now
+
+# Add the currenbt user to the docker group so that you don't need to use sudo to run docker commands
+sudo usermod -aG docker $USER
+
+# Install docker compose
+
+## One way of getting the current version information from GitHub
+## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[].browser_download_url" | grep -v '\.json\|\.sha256'
+
+## An alternate way of getting the current version information from GitHub
+## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | grep browser_download | egrep linux-aarch64\"$ | awk -F"\""  '{ print $4 }'
+
+dockercomposelatestamd64=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[].browser_download_url" | grep docker-compose-linux-x86_64$)
+dockercomposelatestaarch64=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[].browser_download_url" | grep docker-compose-linux-aarch64$)
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    wget $dockercomposelatestamd64 -O $DOCKER_CONFIG/cli-plugins/docker-compose
+    ;;
+  i?86)
+    echo "Architecture: x86 (32-bit)"
+    ;;
+  arm*)
+    echo "Architecture: ARM"
+    ;;
+  aarch64)
+    echo "Architecture: AArch64 (64-bit ARM)"
+    wget $dockercomposelatestaarch64 -O $DOCKER_CONFIG/cli-plugins/docker-compose
     ;;
   ppc64le)
     echo "Architecture: PowerPC 64-bit Little Endian"
@@ -290,9 +320,10 @@ case "$arch" in
     echo "Architecture: AArch64 (64-bit ARM)"
     curl -sSO https://downloads.1password.com/linux/tar/stable/aarch64/1password-latest.tar.gz
     sudo tar -xf 1password-latest.tar.gz
-    sudo mkdir -p /opt/1Password \
+    sudo mkdir -p /opt/1Password
     sudo mv 1password-*/* /opt/1Password
     sudo /opt/1Password/after-install.sh
+    rm -rf 1password*
     ;;
   ppc64le)
     echo "Architecture: PowerPC 64-bit Little Endian"
@@ -346,10 +377,10 @@ case "$arch" in
   aarch64)
     echo "Architecture: AArch64 (64-bit ARM)"
     wget $ripgreparm
-    tar -xzvf ripgrep_all-$ripgrepversion-arm-unknown-linux-musl.tar.gz
-    sudo mv ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl/rga* /usr/bin
-    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl
-    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl*.gz*
+    tar -xzvf ripgrep_all-$ripgrepversion-arm-unknown-linux-gnueabihf.tar.gz
+    sudo mv ./ripgrep_all-$ripgrepversion-arm-unknown-linux-gnueabihf/rga* /usr/bin
+    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-gnueabihf
+    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-gnueabihf*.gz*
     ;;
   ppc64le)
     echo "Architecture: PowerPC 64-bit Little Endian"
@@ -361,6 +392,7 @@ esac
 
 popd
 
+pushd ~/Downloads
 
 ## PowerShell install for ARM
 
@@ -371,7 +403,7 @@ case "$arch" in
     bits=$(getconf LONG_BIT)
     powershellarm=$(curl -sL https://api.github.com/repos/PowerShell/PowerShell/releases/latest | jq -r ".assets[].browser_download_url" | grep "linux-arm${bits}.tar.gz")
     powershellversion=$(echo $powershellarm | awk -F"-" '{ print $2 }')
-    curl -Ls $powershellarm -O powershell.tar.gz
+    curl -Ls $powershellarm -o powershell.tar.gz
     # Create the target folder where powershell will be placed
     sudo mkdir -p /opt/microsoft/powershell/7
     # Expand powershell to the target folder
@@ -380,12 +412,14 @@ case "$arch" in
     sudo chmod +x /opt/microsoft/powershell/7/pwsh
     # Create the symbolic link that points to pwsh
     sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+    rm -rf powershell.tar.gz
         ;;
   *)
     echo "Architecture: Unknown ($arch)"
     ;;
 esac
 
+popd
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -394,7 +428,6 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 git clone --depth 1 https://github.com/junegunn/fzf.git
 cd ~/fzf
 ./install --all
-source ~/.zshrc
 cd ~/
 
 # Install rustscan
@@ -665,10 +698,15 @@ rm -rf hashcat-utils-1.9.7z
 
 sudo apt autoremove --purge -y
 
+israspberrypi$(uname -n)
+if [[ "$israspberrypi" == "kali-raspberrypi" ]]; then
+    chsh -s /bin/zsh
+fi
+
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
 wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
-source ~/.zshrc
+## source ~/.zshrc
 
 scriptendtime=$(date)
 echo " "
@@ -679,3 +717,5 @@ echo " "
 echo "The installation and configuration of this new Kali build has completed"
 echo "Happy Hacking\!"
 # source ~/.zshrc
+read -rsp $'Press any key to reboot, or wait 10 seconds and the system will reboot automatically ...\n' -n 1 -t 10;
+sudo reboot
