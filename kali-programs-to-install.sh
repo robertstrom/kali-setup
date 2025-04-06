@@ -498,13 +498,13 @@ sudo chown -R rstrom nmap-converter
 popd
 
 # Install wwwtree
-## sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
-## cd /opt/wwwtree
-## sudo pip3 install -r requirements.txt
-## sudo chmod +x wwwtree.py
-## cd /usr/bin
-## sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
-pipx install wwwtree
+sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
+cd /opt/wwwtree
+sudo pip3 install -r requirements.txt
+sudo chmod +x wwwtree.py
+cd /usr/bin
+sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
+
 
 # Install Reverse Shell Generator
 # https://github.com/bing0o/Reverse_Shell_Generator
