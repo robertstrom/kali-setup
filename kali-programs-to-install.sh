@@ -46,14 +46,13 @@ scriptstarttime=$(date)
 # https://kb.vmware.com/s/article/60262
 # https://docs.vmware.com/en/VMware-Tools/11.2/rn/VMware-Tools-1125-Release-Notes.html#vmware-tools-issues-in-vmware-workstation-or-fusion-known
 # Configure shared folder in VMware to point to the folder on the VMware host and leave shared folders enable
-
 # Add this line to the /etc/fstab file
 # .host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0
-sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
+## sudo bash -c 'echo ".host:/    /mnt/hgfs        fuse.vmhgfs-fuse    defaults,allow_other    0    0" >> /etc/fstab'
 
 
 ## RStrom - 5/28/2023 - Added all group memberships below
-sudo adduser rstrom sudo
+## sudo adduser rstrom sudo
 
 
 ### For VirtualBox ###
@@ -198,10 +197,10 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 
 
 ## 2024-11-06 - Install NoMachine
-pushd ~/Downloads
-wget https://www.nomachine.com/free/linux/64/deb -O nomachine.deb
-sudo dpkg -i nomachine.deb
-popd
+## pushd ~/Downloads
+## wget https://www.nomachine.com/free/linux/64/deb -O nomachine.deb
+## sudo dpkg -i nomachine.deb
+## popd
 
 ## Install ShellCheck - A shell script static analysis tool
 ## https://github.com/koalaman/shellcheck#user-content-in-your-editor
@@ -215,16 +214,95 @@ popd
 
 sudo apt install -yy shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
 flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
-xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu wkhtmltopdf grepcidr speedtest-cli neofetch sshuttle mpack filezilla lolcat \
+xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
 ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
-zbar-tools gnupg2 vivaldi-stable dc3dd powershell-empire powershell-empire rlwrap partitionmanager kali-undercover fastfetch hyfetch \
-lolcat 7zip-standalone eza villain
+zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io \
+code-oss obsidian breeze-icon-theme trufflehog python3-trufflehogregexes coercer golang-go ligolo-ng sublist3r tcpspy
+
+# Enable the docker service
+sudo systemctl enable docker --now
+
+# Add the currenbt user to the docker group so that you don't need to use sudo to run docker commands
+sudo usermod -aG docker $USER
+
+# Install docker compose
+arch=$(uname -m)
+
+## One way of getting the current version information from GitHub
+## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | jq -r ".assets[].browser_download_url" | grep -v '\.json\|\.sha256'
+
+## An alternate way of getting the current version information from GitHub
+## curl -Ls https://api.github.com/repos/docker/compose/releases/latest | grep browser_download | egrep linux-aarch64\"$ | awk -F"\""  '{ print $4 }'
+
+dockercomposelatest=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/docker/compose/releases/latest)
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    curl -SL $dockercomposelatest/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+    ;;
+  i?86)
+    echo "Architecture: x86 (32-bit)"
+    ;;
+  arm*)
+    echo "Architecture: ARM"
+    ;;
+  aarch64)
+    echo "Architecture: AArch64 (64-bit ARM)"
+    curl -SL $dockercomposelatest/docker-compose-linux-aarch64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+    ;;
+  ppc64le)
+    echo "Architecture: PowerPC 64-bit Little Endian"
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
+# Install python virtual environments venv
+pip install virtualenv
+
+# pipx ensurepath
+pipx ensurepath
+## sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 
 ## 2024-11-09 - Added the install of 1password
 pushd ~/Downloads
-wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
-sudo dpkg -i 1password-latest.deb
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    wget https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
+    sudo dpkg -i 1password-latest.deb
+    ;;
+  i?86)
+    echo "Architecture: x86 (32-bit)"
+    ;;
+  arm*)
+    echo "Architecture: ARM"
+    ;;
+  aarch64)
+    ## https://support.1password.com/install-linux/#arm-or-other-distributions-targz
+    echo "Architecture: AArch64 (64-bit ARM)"
+    curl -sSO https://downloads.1password.com/linux/tar/stable/aarch64/1password-latest.tar.gz
+    sudo tar -xf 1password-latest.tar.gz
+    sudo mkdir -p /opt/1Password \
+    sudo mv 1password-*/* /opt/1Password
+    sudo /opt/1Password/after-install.sh
+    ;;
+  ppc64le)
+    echo "Architecture: PowerPC 64-bit Little Endian"
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
 popd
+
 
 # i3 program installs
 ## sudo apt install kali-desktop-i3
@@ -240,14 +318,74 @@ popd
 
 
 ## pull down the ripgrep-all binary and move the executables to the /usr/bin directory
+## One way of getting the current version information from GitHub
+ripgrepamd64=$(curl -s https://api.github.com/repos/phiresky/ripgrep-all/releases/latest | jq -r ".assets[].browser_download_url" | grep x86_64-unknown-linux-musl)
+ripgreparm=$(curl -s https://api.github.com/repos/phiresky/ripgrep-all/releases/latest | jq -r ".assets[].browser_download_url" | grep arm-unknown-linux-gnueabihf)
+ripgrepversion=$(echo $ripgreparm | awk -F"/" '{ print $8 }')
+
+## An alternate way of getting the current version information from GitHub
+## curl -s https://api.github.com/repos/phiresky/ripgrep-all/releases/latest | grep browser_download
 
 pushd ~/Downloads
-wget https://github.com/phiresky/ripgrep-all/releases/download/v0.10.6/ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
-tar -xzvf ripgrep_all-v0.10.6-x86_64-unknown-linux-musl.tar.gz
-sudo mv ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl/rga* /usr/bin
-rm -rf ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl
-rm -rf ./ripgrep_all-v0.10.6-x86_64-unknown-linux-musl*.gz*
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    wget $ripgrepamd64
+    tar -xzvf ripgrep_all-$ripgrepversion-x86_64-unknown-linux-musl.tar.gz
+    sudo mv ./ripgrep_all-$ripgrepversion-x86_64-unknown-linux-musl/rga* /usr/bin
+    rm -rf ./ripgrep_all-$ripgrepversion-x86_64-unknown-linux-musl
+    rm -rf ./ripgrep_all-$ripgrepversion-x86_64-unknown-linux-musl*.gz*
+    ;;
+  i?86) 
+    echo "Architecture: x86 (32-bit)"
+    ;;
+  arm*)
+    echo "Architecture: ARM"
+    ;;
+  aarch64)
+    echo "Architecture: AArch64 (64-bit ARM)"
+    wget $ripgreparm
+    tar -xzvf ripgrep_all-$ripgrepversion-arm-unknown-linux-musl.tar.gz
+    sudo mv ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl/rga* /usr/bin
+    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl
+    rm -rf ./ripgrep_all-$ripgrepversion-arm-unknown-linux-musl*.gz*
+    ;;
+  ppc64le)
+    echo "Architecture: PowerPC 64-bit Little Endian"
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
 popd
+
+
+## PowerShell install for ARM
+
+case "$arch" in
+  aarch64)
+    echo "Architecture: AArch64 (64-bit ARM)"
+    pushd ~/Downloads
+    bits=$(getconf LONG_BIT)
+    powershellarm=$(curl -sL https://api.github.com/repos/PowerShell/PowerShell/releases/latest | jq -r ".assets[].browser_download_url" | grep "linux-arm${bits}.tar.gz")
+    powershellversion=$(echo $powershellarm | awk -F"-" '{ print $2 }')
+    curl -Ls $powershellarm -O powershell.tar.gz
+    # Create the target folder where powershell will be placed
+    sudo mkdir -p /opt/microsoft/powershell/7
+    # Expand powershell to the target folder
+    sudo tar zxf ./powershell.tar.gz -C /opt/microsoft/powershell/7
+    # Set execute permissions
+    sudo chmod +x /opt/microsoft/powershell/7/pwsh
+    # Create the symbolic link that points to pwsh
+    sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+        ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
 
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -263,9 +401,47 @@ cd ~/
 # https://overide.medium.com/rustscan-fcbdb93e17c9
 # https://github.com/RustScan/RustScan/wiki/Installation-Guide
 # https://github.com/RustScan/RustScan/releases/
-wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb -O rustscan_2.0.1_amd64.deb
-sudo dpkg -i rustscan_2.0.1_amd64.deb
-rm -rf rustscan_2.0.1_amd64.deb
+## Get latest version information
+## curl -s https://api.github.com/repos/bee-san/RustScan/releases/latest | jq -r ".assets[].browser_download_url"
+
+rustscanlatestamd64=$(curl -s https://api.github.com/repos/bee-san/RustScan/releases/latest | jq -r ".assets[].browser_download_url" | grep x86_64-linux-rustscan.tar.gz.zip)
+rustscanlatestaarch64=$(curl -s https://api.github.com/repos/bee-san/RustScan/releases/latest | jq -r ".assets[].browser_download_url" | grep aarch64-linux-rustscan.zip)
+
+pushd ~/Downloads
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    wget $rustscanlatestamd64
+    unzip x86_64-linux-rustscan.tar.gz.zip
+    tar -xzvf x86_64-linux-rustscan.tar.gz
+    sudo mv ./rustscan /usr/bin
+    rm -rf ./x86_64-linux-rustscan.tar.gz.zip
+    rm -rf ./x86_64-linux-rustscan.tar.gz
+    ;;
+  i?86) 
+    echo "Architecture: x86 (32-bit)"
+    ;;
+  arm*)
+    echo "Architecture: ARM"
+    ;;
+  aarch64)
+    echo "Architecture: AArch64 (64-bit ARM)"
+    wget $rustscanlatestaarch64
+    unzip aarch64-linux-rustscan.zip
+    sudo mv ./rustscan /usr/bin
+    rm -rf ./aarch64-linux-rustscan.zip
+    ;;
+  ppc64le)
+    echo "Architecture: PowerPC 64-bit Little Endian"
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+popd
+
 
 # Install nmapAutomater
 git clone https://github.com/21y4d/nmapAutomator.git
@@ -286,12 +462,13 @@ sudo chown -R rstrom nmap-converter
 popd
 
 # Install wwwtree
-sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
-cd /opt/wwwtree
-sudo pip3 install -r requirements.txt
-sudo chmod +x wwwtree.py
-cd /usr/bin
-sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
+## sudo git clone https://github.com/t3l3machus/wwwtree /opt/wwwtree
+## cd /opt/wwwtree
+## sudo pip3 install -r requirements.txt
+## sudo chmod +x wwwtree.py
+## cd /usr/bin
+## sudo ln -s /opt/wwwtree/wwwtree.py wwwtree
+pipx install wwwtree
 
 # Install Reverse Shell Generator
 # https://github.com/bing0o/Reverse_Shell_Generator
@@ -311,16 +488,16 @@ wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/MsgViewer.des
 
 
 # Install Windows Exploit Suggester - Next Generation (WES-NG)
-pip3 install wesng
+git clone https://github.com/bitsadmin/wesng --depth 1
 
 # Install AutoRecon
 # https://github.com/Tib3rius/AutoRecon
-python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
+## This is now an installable package via apt install
+## python3 -m pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 
 ## How to: Fix “sudo: add-apt-repository: command not found” (Debian/Ubuntu/Kali Linux etc.)
 # sudo apt-get install software-properties-common -y
-
 
 ## Install Web Recon programs
 ## httprobe
@@ -345,7 +522,7 @@ unzip v3.zip
 
 ## Updog web server
 ## https://github.com/sc0tfree/updog
-pip3 install updog
+pipx install updog
 
 ## The mkpsrevshell.py script from - https://gist.github.com/tothi/ab288fb523a4b32b51a53e542d40fe58
 ## This script creates an encoded PowerShell reverse shell
@@ -353,10 +530,10 @@ pip3 install updog
 
 
 # Install kerbrute
-pip3 install kerbrute
+pipx install kerbrute
 
 # Install wine
-sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32 -y
+## sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32 -y
 
 
 # Install vsftpd
@@ -396,16 +573,16 @@ sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install
 
 # Install Python HTTP Upload server
 # https://pypi.org/project/uploadserver/
-pip3 install uploadserver
+pipx install uploadserver
 ## Usage = python3 -m uploadserver
 ## python3 -m uploadserver 80
 
 # Install atftp TFTP server
-sudo apt install atftp -y
+## sudo apt install atftp -y
 # Configure the home directory for the TFTP server files
-sudo mkdir /tftp
+## sudo mkdir /tftp
 # Configure the permissions for the TFTP server files
-sudo chown nobody: /tftp
+## sudo chown nobody: /tftp
 # Command to start the TFTP server
 # sudo atftpd --daemon --port 69 /tftp
 
@@ -420,8 +597,8 @@ chmod +x ~/Documents/scripts/python/ps_encoder.py
 # https://github.com/Veil-Framework/Veil
 # Kali quick install
 # Veil was found to already be installed, but when you run veil the program still does need to be configured - 5/14/2022
-sudo apt install veil -y
-sudo /usr/share/veil/config/setup.sh --force --silent
+## sudo apt install veil -y
+## sudo /usr/share/veil/config/setup.sh --force --silent
 
 # Configure SAMBA to a minimum SMB version of SMBv2 - for Windows 2016 and above
 sudo bash -c 'echo "" >> /etc/samba/smb.conf'
@@ -473,11 +650,6 @@ git clone https://github.com/0x4xel/Bat-Potato.git
 chmod +x ./Bat-Potato/Bat-Potato.py
 popd
 
-# Pull down the custom Kali .zshrc file from GitHub
-cp ~/.zshrc ~/.zshrc.sav
-wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
-source ~/.zshrc
-
 # Download and extract hashcat kwprocessor Advanced keyboard-walk generator
 
 wget https://github.com/hashcat/kwprocessor/releases/download/v1.00/kwprocessor-1.00.7z
@@ -493,6 +665,10 @@ rm -rf hashcat-utils-1.9.7z
 
 sudo apt autoremove --purge -y
 
+# Pull down the custom Kali .zshrc file from GitHub
+cp ~/.zshrc ~/.zshrc.sav
+wget https://raw.githubusercontent.com/robertstrom/kali-setup/main/zshrc -O ~/.zshrc
+source ~/.zshrc
 
 scriptendtime=$(date)
 echo " "
@@ -501,5 +677,5 @@ echo " "
 echo "The script completed at $scriptendtime"
 echo " "
 echo "The installation and configuration of this new Kali build has completed"
-echo "Happy Hacking!"
+echo "Happy Hacking\!"
 # source ~/.zshrc
