@@ -558,6 +558,7 @@ go install github.com/tomnomnom/waybackurls@latest
 ## Autoenum
 wget https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
 unzip v3.zip
+rm v3.zip
 
 ## Updog web server
 ## https://github.com/sc0tfree/updog
