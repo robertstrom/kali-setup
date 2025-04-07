@@ -4,6 +4,11 @@ scriptstarttime=$(date)
 
 # Kali Setup programs to be installed and configuration changes needed
 
+### 2025-04-06 - Major rework to identify which CPU architechture the OS is running (Intel/AMD or ARM in particular)
+### Also removed old packages that are no longer available, moved some python based programs to use pipx instead of pip
+### Modified a few installs to read the latest version that is available on GitHub and install that version instead of a
+## static version definition
+
 ### 2025-01-26 - Major modifications to clean things up ###
 
 # XFCE Information for possible automation at a later date
@@ -724,6 +729,6 @@ echo " "
 echo "The installation and configuration of this new Kali build has completed"
 echo "Happy Hacking\!"
 # source ~/.zshrc
-read -rsp $'Press any key to reboot, or wait 10 seconds and the system will reboot automatically ...\n' -n 1 -t 10;
+## read -rsp $'Press any key to reboot, or wait 10 seconds and the system will reboot automatically ...\n' -n 1 -t 10;
 
-sudo reboot
+## sudo reboot
