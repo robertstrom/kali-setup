@@ -160,7 +160,9 @@ popd
 wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O ~/transfers/linux-exploit-suggester.sh
 chmod +x ~/transfers/linux-exploit-suggester.sh
 
+
 # Download pspy
+pushd ~/transfers
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32s
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
@@ -169,6 +171,7 @@ chmod +x ~/transfers/pspy32
 chmod +x ~/transfers/pspy32s
 chmod +x ~/transfers/pspy64
 chmod +x ~/transfers/pspy64s
+popd
 
 # Copy sbd.exe  to the ~/transfers directory
 cp /usr/share/windows-resources/sbd/sbd.exe ~/transfers/
