@@ -441,6 +441,8 @@ case "$arch" in
     snafflerdownload=$(curl -s https://api.github.com/repos/SnaffCon/Snaffler/releases/latest | jq -r ".assets[].browser_download_url")
     wget $snafflerdownload
     chmod a+x ./Snaffler.exe
+    wget https://raw.githubusercontent.com/zh54321/SnafflerParser/refs/heads/main/snafflerParser.ps1
+    chmod a+x ./snafflerParser.ps1
         ;;
   *)
     echo "Architecture: Unknown ($arch)"
