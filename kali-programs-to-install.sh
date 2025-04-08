@@ -432,6 +432,23 @@ esac
 
 popd
 
+## Snaffler download
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    pushd ~/exploits
+    snafflerdownload=$(curl -s https://api.github.com/repos/SnaffCon/Snaffler/releases/latest | jq -r ".assets[].browser_download_url")
+    wget $snafflerdownload
+    chmod a+x ./Snaffler.exe
+        ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+popd
+
 # Setting up link to bat for the batcat install
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
