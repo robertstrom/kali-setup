@@ -747,8 +747,6 @@ wget https://github.com/hashcat/hashcat-utils/releases/download/v1.9/hashcat-uti
 rm -rf hashcat-utils-1.9.7z
 
 
-sudo apt autoremove --purge -y
-
 israspberrypi$(uname -n)
 if [[ "$israspberrypi" == "kali-raspberrypi" ]]; then
     chsh -s /bin/zsh
@@ -770,4 +768,5 @@ echo "Happy Hacking\!"
 # source ~/.zshrc
 ## read -rsp $'Press any key to reboot, or wait 10 seconds and the system will reboot automatically ...\n' -n 1 -t 10;
 
+## sudo apt autoremove --purge -y
 ## sudo reboot
