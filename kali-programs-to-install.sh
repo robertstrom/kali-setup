@@ -127,6 +127,9 @@ mkdir ~/transfers
 mkdir -p  ~/transfers/Sysinternals
 mkdir -p  ~/transfers/Nmap_static
 
+## Create a directory for copying down prebuilt Docker Images from NAS
+mkdir ~/Docker-Images
+
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
@@ -221,6 +224,21 @@ wget https://raw.githubusercontent.com/diego-treitos/linux-smart-enumeration/mas
 ## 2024-11-09 - Added the install of vivaldi
 
 arch=$(uname -m)
+
+## Download prebuilt Docker images from QNAP NAS
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    pushd ~/Docker-Images
+    scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
+        ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+popd
 
 case "$arch" in
   x86_64|amd64)
