@@ -232,7 +232,9 @@ case "$arch" in
     echo "Architecture: x86-64 (64-bit)"
     pushd ~/Docker-Images
     scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
-        ;;
+    # loading the saved Docker images to make them available for use
+    for i in $(ls ./*tar); do docker load --input  $i; done
+    ;;
   *)
     echo "Architecture: Unknown ($arch)"
     ;;
