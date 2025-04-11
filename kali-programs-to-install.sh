@@ -2,6 +2,8 @@
 
 scriptstarttime=$(date)
 
+screen -S install-kali
+
 # Kali Setup programs to be installed and configuration changes needed
 
 ### 2025-04-06 - Major rework to identify which CPU architechture the OS is running (Intel/AMD or ARM in particular)
