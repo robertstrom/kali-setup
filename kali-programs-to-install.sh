@@ -2,7 +2,6 @@
 
 scriptstarttime=$(date)
 
-screen -S install-kali
 
 # Kali Setup programs to be installed and configuration changes needed
 
