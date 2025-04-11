@@ -142,7 +142,7 @@ sudo apt install -y sshfs
 
 export qnap='192.168.0.99'
 
-sshfs rstrom@$qnap: ~/QNAPMyDocs
+sshfs rstrom@$qnap: ~/QNAPMyDocs -oStrictHostKeyChecking=accept-new
 
 pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
 
