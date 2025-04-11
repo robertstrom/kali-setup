@@ -135,7 +135,7 @@ mkdir ~/Docker-Images
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
 
-sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt upgrade -yq
+sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -yq
 
 # Install sshfs
 sudo apt install -y sshfs
