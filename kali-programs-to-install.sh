@@ -86,6 +86,14 @@ scriptstarttime=$(date)
 # sudo ./pimpmykali.sh
 # cd  /
 
+# 2025-04-13 - Added prompt to set the hostname
+# Setting hostname
+read -p "What is the hostname of this machine? " sethostname
+sudo hostnamectl set-hostname $sethostname
+# Fixing the hostname in the /etc/hostname file - uses the variable set above when setting the hostname
+getprevhostname=$(grep 127.0.1.1 /etc/hosts | awk '{ print $2 }')
+sudo  sed -i "s/$getprevhostname/$sethostname/" /etc/hosts
+
 
 # 2024-11-06
 # create a ~/.screenrc file so that it is possible to scroll when using screen
@@ -137,24 +145,10 @@ sudo usermod -a -G fuse rstrom
 
 sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -yq
 
-# Install sshfs
-sudo apt install -y sshfs
-
-export qnap='192.168.0.99'
-
-sshfs rstrom@$qnap: ~/QNAPMyDocs -oStrictHostKeyChecking=accept-new
-
-pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
-
-cp * ~/transfers/Sysinternals/
-
-popd
-
 # PSTools
 # Additional Sysinternals tools needed
 # procdump
 
-# Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
 # Copy mimikatz.exe to the ~/transfers directory
 cp -R /usr/share/windows-resources/mimikatz/ ~/transfers/
 
@@ -307,24 +301,6 @@ case "$arch" in
 esac
 
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
-
-
-## Download prebuilt Docker images from QNAP NAS
-
-case "$arch" in
-  x86_64|amd64)
-    echo "Architecture: x86-64 (64-bit)"
-    pushd ~/Docker-Images
-    scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
-    # loading the saved Docker images to make them available for use
-    for i in $(ls ./*tar); do docker load --input  $i; done
-    ;;
-  *)
-    echo "Architecture: Unknown ($arch)"
-    ;;
-esac
-
-popd
 
 # Install python virtual environments venv
 pip install virtualenv
@@ -749,10 +725,36 @@ wget https://github.com/hashcat/hashcat-utils/releases/download/v1.9/hashcat-uti
 rm -rf hashcat-utils-1.9.7z
 
 
-israspberrypi$(uname -n)
+israspberrypi=$(uname -n)
 if [[ "$israspberrypi" == "kali-raspberrypi" ]]; then
     chsh -s /bin/zsh
 fi
+
+export qnap='192.168.0.99'
+
+# Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
+sshfs rstrom@$qnap: ~/QNAPMyDocs -oStrictHostKeyChecking=accept-new
+pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
+cp * ~/transfers/Sysinternals/
+popd
+
+## Download prebuilt Docker images from QNAP NAS
+
+case "$arch" in
+  x86_64|amd64)
+    echo "Architecture: x86-64 (64-bit)"
+    pushd ~/Docker-Images
+    scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
+    # loading the saved Docker images to make them available for use
+    # using sg to run the docker load command as the docker user since the new group member for the logged in user has not taken effect yet (needs to load a new shell instance)
+    for i in $(ls ./*tar); do sg docker -c "docker load --input  $i"; done
+    ;;
+  *)
+    echo "Architecture: Unknown ($arch)"
+    ;;
+esac
+
+popd
 
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
