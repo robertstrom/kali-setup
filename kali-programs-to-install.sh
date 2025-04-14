@@ -86,15 +86,6 @@ scriptstarttime=$(date)
 # sudo ./pimpmykali.sh
 # cd  /
 
-# 2025-04-13 - Added prompt to set the hostname
-# Setting hostname
-read -p "What is the hostname of this machine? " sethostname
-sudo hostnamectl set-hostname $sethostname
-# Fixing the hostname in the /etc/hostname file - uses the variable set above when setting the hostname
-getprevhostname=$(grep 127.0.1.1 /etc/hosts | awk '{ print $2 }')
-sudo  sed -i "s/$getprevhostname/$sethostname/" /etc/hosts
-
-
 # 2024-11-06
 # create a ~/.screenrc file so that it is possible to scroll when using screen
 touch ~/.screenrc
@@ -142,6 +133,14 @@ mkdir ~/Docker-Images
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
+
+# 2025-04-13 - Added prompt to set the hostname
+# Setting hostname
+read -p "What is the hostname of this machine? " sethostname
+sudo hostnamectl set-hostname $sethostname
+# Fixing the hostname in the /etc/hostname file - uses the variable set above when setting the hostname
+getprevhostname=$(grep 127.0.1.1 /etc/hosts | awk '{ print $2 }')
+sudo  sed -i "s/$getprevhostname/$sethostname/" /etc/hosts
 
 sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -yq
 
