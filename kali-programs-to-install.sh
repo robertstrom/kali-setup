@@ -48,13 +48,13 @@ scriptstarttime=$(date)
 # See this post for more information
 # https://www.reddit.com/r/learnprogramming/comments/23kiz9/read_command_in_bash_script_not_waiting_for_user/
 #
-#######################################################################################################################
+################################################################################################################################################
 #                                   Use the curl command below to start the script
 # 
-#  bash <(curl --silent https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh)
+#  bash <(curl --silent https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh) | tee kali-install-script.log
 #
 #
-#######################################################################################################################
+################################################################################################################################################
 
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
 ## so that it is fully functional with all expected software installed.
