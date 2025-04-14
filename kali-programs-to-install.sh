@@ -730,24 +730,38 @@ if [[ "$israspberrypi" == "kali-raspberrypi" ]]; then
     chsh -s /bin/zsh
 fi
 
-export qnap='192.168.0.99'
+## export qnap='192.168.0.99'
 
-# Copy all current Sysinternals tools to the ~/transfers/Sysinternals directory
-sshfs rstrom@$qnap: ~/QNAPMyDocs -oStrictHostKeyChecking=accept-new
-pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
-cp * ~/transfers/Sysinternals/
-popd
+# Download all current Sysinternals tools to the ~/transfers/Sysinternals directory
+# sshfs rstrom@$qnap: ~/QNAPMyDocs -oStrictHostKeyChecking=accept-new
+# pushd '/home/rstrom/QNAPMyDocs/My Documents/IRTools/Sysinternals'
+wget https://download.sysinternals.com/files/SysinternalsSuite.zip
+unzip SysinternalsSuite.zip -d ~/transfers/Sysinternals/
+rm -rf SysinternalsSuite.zip
 
-## Download prebuilt Docker images from QNAP NAS
+## Download prebuilt Docker images from Dropbox
 
 case "$arch" in
   x86_64|amd64)
     echo "Architecture: x86-64 (64-bit)"
     pushd ~/Docker-Images
-    scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
+    # scp rstrom@qnap:/share/CACHEDEV1_DATA/VM-Backups/Docker-container-backups/*.tar ./
     # loading the saved Docker images to make them available for use
     # using sg to run the docker load command as the docker user since the new group member for the logged in user has not taken effect yet (needs to load a new shell instance)
+    ## Ubuntu 14.04 Docker Image
+    wget "https://www.dropbox.com/scl/fi/t3scttx9x84hszbodxgk8/ubuntu1404_docker_container.tar.gz?rlkey=e8gl96ig07jobbr0p468t45nf&st=d55sfy85&dl=1" -O ubuntu1404_docker_container.tar.gz
+    gzip -d ubuntu1404_docker_container.tar.gz
+    ## Ubuntu 16.04 Docker Image
+    wget "https://www.dropbox.com/scl/fi/zip2srqcq5xpv7zh98ggu/ubuntu1604_docker_container.tar.gz?rlkey=1wvz45cpuohj53gqfpt4bmrca&st=eszeq0j4&dl=1" -O ubuntu1604_docker_container.tar.gz
+    gzip -d ubuntu1604_docker_container.tar.gz
+    ## Ubuntu 18.04 Docker Image
+    wget "https://www.dropbox.com/scl/fi/nbaj9d7ple4pa39brnei0/ubuntu1804_docker_container.tar.gz?rlkey=sfkeb3uy8ujm5n3rcs176slxp&st=d9daops3&dl=1" -O ubuntu1804_docker_container.tar.gz
+    gzip -d ubuntu1804_docker_container.tar.gz
+    ## Ubuntu 20.04 Docker Image
+    wget "https://www.dropbox.com/scl/fi/40xttbut5zdgyu03kkuht/ubuntu2004_docker_container.tar.gz?rlkey=e3u3pqyg148qqie4og8haul25&st=9l25pzwm&dl=1" -O ubuntu2004_docker_container.tar.gz
+    gzip -d ubuntu2004_docker_container.tar.gz
     for i in $(ls ./*tar); do sg docker -c "docker load --input  $i"; done
+    rm -rf ubuntu*.tar
     ;;
   *)
     echo "Architecture: Unknown ($arch)"
