@@ -289,13 +289,13 @@ alias RestartResolvd="sudo systemctl restart systemd-resolved"
 alias GetDNSResolverInfo="sudo resolvectl"
 
 # Docker Aliases
-alias docker-start-webdav='sudo docker run -p 80:80 -v "${PWD}":/srv/data/share rstrom/webdav'
-alias docker-stop-webdav='sudo docker stop $(sudo docker ps -q --filter ancestor=rstrom/webdav)'
-alias docker-start-ubuntu2004='sudo docker run -it ubuntu2004'
-alias docker-start-ubuntu1804='sudo docker run -it ubuntu1804'
-alias docker-start-ubuntu1604='sudo docker run -it ubuntu1604'
-alias docker-start-ubuntu1404='sudo docker run -it ubuntu1404'
-alias docker-delete-dangling-images='sudo docker rmi -f $(sudo docker images -f "dangling=true" -q)'
+alias docker-start-webdav='docker run -p 80:80 -v "${PWD}":/srv/data/share rstrom/webdav'
+alias docker-stop-webdav='docker stop $(sudo docker ps -q --filter ancestor=rstrom/webdav)'
+alias docker-start-ubuntu2004='docker run -it ubuntu2004'
+alias docker-start-ubuntu1804='docker run -it ubuntu1804'
+alias docker-start-ubuntu1604='docker run -it ubuntu1604'
+alias docker-start-ubuntu1404='docker run -it ubuntu1404'
+alias docker-delete-dangling-images='docker rmi -f $(sudo docker images -f "dangling=true" -q)'
 
 
 # enable auto-suggestions based on the history
@@ -653,6 +653,6 @@ curl -k -v -I $1 2>&1 | grep -i "< location" | cut -d " " -f 3
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-complete -W "$(grep "Host" ~/.ssh/config | grep -vE "HostName|Hostname|no" | awk '{ print $2 }' | sed -E "/\*/d")" ssh
+## complete -W "$(grep "Host" ~/.ssh/config | grep -vE "HostName|Hostname|no" | awk '{ print $2 }' | sed -E "/\*/d")" ssh
 
 ## KRB5CCNAME=/home/rstrom/Documents/OSCP_Learning_Path_Machines/PublicNetwork/results/10.11.1.120/loot/harry.ccache
