@@ -45,6 +45,9 @@ scriptstarttime=$(date)
 # This needed to be changed when I added the prompt to change the machine name
 # The read -p command would not work with wget but it does work with the curl command
 # wget -O - https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh | bash
+# See this post for more information
+# https://www.reddit.com/r/learnprogramming/comments/23kiz9/read_command_in_bash_script_not_waiting_for_user/
+#
 #######################################################################################################################
 #                                   Use the curl command below to start the script
 # 
