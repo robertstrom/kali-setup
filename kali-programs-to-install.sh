@@ -41,8 +41,17 @@ scriptstarttime=$(date)
 
 
 # Command to run on the new Kali system to download and execute this script
+# The wget command below is the old method of kicking off the script on a new Kali build
+# This needed to be changed when I added the prompt to change the machine name
+# The read -p command would not work with wget but it does work with the curl command
 # wget -O - https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh | bash
-
+#######################################################################################################################
+#                                   Use the curl command below to start the script
+# 
+#  bash <(curl --silent https://raw.githubusercontent.com/robertstrom/kali-setup/main/kali-programs-to-install.sh)
+#
+#
+#######################################################################################################################
 
 ## This collection of information is designed to make it easier to get a Kali instance to a standardized desired base configuration point
 ## so that it is fully functional with all expected software installed.
@@ -85,6 +94,14 @@ scriptstarttime=$(date)
 # cd /opt/pimpmykali
 # sudo ./pimpmykali.sh
 # cd  /
+
+# 2025-04-13 - Added prompt to set the hostname
+# Setting hostname
+read -p "What is the hostname of this machine? " sethostname
+sudo hostnamectl set-hostname $sethostname
+# Fixing the hostname in the /etc/hostname file - uses the variable set above when setting the hostname
+getprevhostname=$(grep 127.0.1.1 /etc/hosts | awk '{ print $2 }')
+sudo  sed -i "s/$getprevhostname/$sethostname/" /etc/hosts
 
 # 2024-11-06
 # create a ~/.screenrc file so that it is possible to scroll when using screen
@@ -133,14 +150,6 @@ mkdir ~/Docker-Images
 # Setup fuse group and add user to fuse group for sshfs use
 sudo groupadd fuse
 sudo usermod -a -G fuse rstrom
-
-# 2025-04-13 - Added prompt to set the hostname
-# Setting hostname
-read -p "What is the hostname of this machine? " sethostname
-sudo hostnamectl set-hostname $sethostname
-# Fixing the hostname in the /etc/hostname file - uses the variable set above when setting the hostname
-getprevhostname=$(grep 127.0.1.1 /etc/hosts | awk '{ print $2 }')
-sudo  sed -i "s/$getprevhostname/$sethostname/" /etc/hosts
 
 sudo DEBIAN_FRONTEND=noninteractive apt update && sudo DEBIAN_FRONTEND=noninteractive apt full-upgrade -yq
 
