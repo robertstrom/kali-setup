@@ -630,6 +630,14 @@ Backup-Obsidian() {
     7zz a Obsidian_backup_$backupdate ./Obsidian
 }
 
+# 2025-04-18 - RStrom
+# This is an informational funcion. A reminder, if needed, on how to quickly drop to the bottom of a long shell history list
+jumpToEndofHistory() {
+        # https://superuser.com/questions/868090/how-to-jump-to-the-bottom-of-the-terminal-input-history-after-a-long-lookback
+        ehco "Press the ESC key and then the > key to jump to the end of command history"
+}
+
+
 ## Added for Raspberry Pi installs
 
 get-temperature() {
