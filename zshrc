@@ -652,6 +652,13 @@ expandshortURL() {
 curl -k -v -I $1 2>&1 | grep -i "< location" | cut -d " " -f 3
 }
 
+# 2025-04-18 - RStrom
+# An alternative method of expanding shortened URL's - pretty much the same as above though
+expandurl() {
+        curl -sIL $1 | grep -i ^Location;
+}
+
+
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
 ### NOT This:
