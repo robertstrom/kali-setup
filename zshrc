@@ -658,6 +658,12 @@ expandurl() {
         curl -sIL $1 | grep -i ^Location;
 }
 
+# 2025-04-21 - RStrom - simple reminder function to inform on how to quickly jump to the end of the history buffer
+jumpToEndofHistory() {
+        # https://superuser.com/questions/868090/how-to-jump-to-the-bottom-of-the-terminal-input-history-after-a-long-lookback
+        echo "Press the ESC key and then the > key to jump to the end of command history"
+}
+
 
 ### When using Kerberos cache credentials for things like impacket-smbclient, impacket-psexec, etc.
 ### Path to the Kerberos ccache files need to be the full path, not the relative path
