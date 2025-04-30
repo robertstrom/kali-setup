@@ -588,6 +588,10 @@ go install github.com/haccer/subjack@latest
 ## https://github.com/tomnomnom/waybackurls
 go install github.com/tomnomnom/waybackurls@latest
 
+# Install glow terminal markdown renderer
+# https://github.com/charmbracelet/glow?tab=readme-ov-file
+go install github.com/charmbracelet/glow@latest
+
 ## Autoenum
 wget https://github.com/Gr1mmie/autoenum/archive/refs/tags/v3.zip
 unzip v3.zip
