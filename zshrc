@@ -580,6 +580,10 @@ convert-NT-DateTime() {
 	date -d@$epoch
 }
 
+## Convert NT Date using PowerShell - works in PowerShell on Linux too
+## (Get-Date 1/1/1601).AddDays(<put the NT Date here>/864000000000)
+## (Get-Date 1/1/1601).AddDays(132109948662945610/864000000000)
+
 convert-Unix-EpochTime() {
         echo "Please enter the Unix Epoch Time string (seconds, not milliseconds)"
         read unixepoch
