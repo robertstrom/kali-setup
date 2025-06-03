@@ -234,7 +234,7 @@ arch=$(uname -m)
 case "$arch" in
   x86_64|amd64)
     sudo DEBIAN_FRONTEND=noninteractive apt install -yq shellcheck libimage-exiftool-perl pv terminator copyq xclip dolphin krusader kdiff3 krename kompare xxdiff krename kde-spectacle \
-    flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc \
+    flameshot html2text csvkit remmina kali-wallpapers-all hollywood-activate kali-screensaver gridsite-clients shellter sipcalc fd-find \
     xsltproc rinetd torbrowser-launcher httptunnel kerberoast tesseract-ocr ncdu grepcidr speedtest-cli sshuttle mpack filezilla lolcat \
     ripgrep bat dcfldd redis-tools feroxbuster name-that-hash jq keepassxc okular exfat-fuse exfatprogs kate xsel pandoc poppler-utils ffmpeg \
     zbar-tools gnupg2 dc3dd rlwrap partitionmanager kali-undercover fastfetch hyfetch lolcat 7zip-standalone eza autorecon docker.io docker-cli \
@@ -784,6 +784,10 @@ case "$arch" in
 esac
 
 popd
+
+# Creating a link to the fdfind binary so that it can be launched using the command fd
+ln -s $(which fdfind) ~/.local/bin/fd
+
 
 # Pull down the custom Kali .zshrc file from GitHub
 cp ~/.zshrc ~/.zshrc.sav
