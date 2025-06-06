@@ -264,7 +264,8 @@ case "$arch" in
     ;;
 esac
 
-
+# Enab;le the ssh service
+sudo systemctl enable ssh --now
 
 # Enable the docker service
 sudo systemctl enable docker --now
