@@ -355,6 +355,11 @@ case "$arch" in
 esac
 popd
 
+# Download and install VS Code
+pushd ~/Downloads
+wget -O vscode-latest-x64.deb https://update.code.visualstudio.com/latest/linux-deb-x64/stable
+sudo dkpg -i vscode-latest-x64.deb
+popd
 
 # i3 program installs
 ## sudo apt install kali-desktop-i3
