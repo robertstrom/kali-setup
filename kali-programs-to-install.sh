@@ -792,6 +792,22 @@ esac
 
 popd
 
+
+# Install SIETpy3 - SIET - Cisco Smart Install Exploitation Tool
+# https://github.com/Sab0tag3d/SIETpy3 - python3 rewrite
+# https://github.com/frostbits-security/SIET - original python2 version with documentation
+cd ~
+sudo git clone https://github.com/Sab0tag3d/SIETpy3.git /opt/sietpy3
+cd /opt/sietpy3
+cd /usr/bin
+sudo ln -s /opt/sietpy3/siet.py siet
+
+# Installing uv
+# See - UV vs. PIP: Revolutionizing Python Package Management
+# https://medium.com/@sumakbn/uv-vs-pip-revolutionizing-python-package-management-576915e90f7e
+ curl -LsSf https://astral.sh/uv/install.sh | sh
+
+
 # Creating a link to the fdfind binary so that it can be launched using the command fd
 ln -s $(which fdfind) ~/.local/bin/fd
 
