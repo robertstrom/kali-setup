@@ -792,6 +792,23 @@ esac
 
 popd
 
+# Install Rust
+# https://www.rust-lang.org/tools/install
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+
+# Source Rust env
+. "$HOME/.cargo/env"
+
+# Install cargo update
+cargo install cargo-update
+
+# Install macchina (fastfetch alternative)
+cargo install macchina
+
+# Install broot directory navigation tool
+# https://dystroy.org/broot/
+cargo install --locked --features clipboard broot
+
 
 # Install SIETpy3 - SIET - Cisco Smart Install Exploitation Tool
 # https://github.com/Sab0tag3d/SIETpy3 - python3 rewrite
