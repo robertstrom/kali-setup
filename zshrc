@@ -270,6 +270,8 @@ alias paste="xclip -selection clipboard -o"
 ## 2024-05-28 - adding pbcopy and pbpaste aliases
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
+# 2025-09-11 - Alias to logoff when RDP'd in
+alias xrdp-logoff='xfce4-session-logout -l'
 
 # alias to TCM Course directory
 alias TCM-PenDir='cd Documents/TCM\ Practical\ Ethical\ Hacking\ -\ The\ Complete\ Course/'
