@@ -661,6 +661,10 @@ pipx install uploadserver
 ## Usage = python3 -m uploadserver
 ## python3 -m uploadserver 80
 
+# Install smbclientng
+## 2025-12-11 - RStrom
+pipx install smbclientng
+
 # Install atftp TFTP server
 ## sudo apt install atftp -y
 # Configure the home directory for the TFTP server files
